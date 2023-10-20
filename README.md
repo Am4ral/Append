@@ -13,9 +13,6 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 
 ## Tabela de Conteúdos
 - [Tecnologias](#tecnologias)
-- [Capturas de Tela](#capturas-de-tela) (opcional)
-- [Instalação](#instalação) (opcional)
-- [Uso](#uso) (opcional)
 - [Contribuição](#contribuição) (opcional)
 - [Licença](#licença)
 
