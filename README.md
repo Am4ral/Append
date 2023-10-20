@@ -12,9 +12,9 @@
 O projeto se trata de uma aplicação web para a divulgação de apartamentos, pensões e repúblicas, semelhante ao Airbnb. Neste sistema, locadores poderão registrar e divulgar seus imóveis, enquanto locatários poderão contatá-los para aluguel. Além disso, a aplicação contará com um painel de controle (dashboard) para os administradores, permitindo a gestão e monitoramento das atividades na plataforma.
 
 ## Tabela de Conteúdos
-- [Funcionaldidades](#contribuição) (opcional)
+- [Funcionaldidades](#contribuição)
 - [Tecnologias](#tecnologias)
-- [Contribuição](#contribuição) (opcional)
+- [Contribuição](#contribuição)
 - [Licença](#licença)
 
 ## Funcionalidades
