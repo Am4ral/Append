@@ -42,7 +42,7 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 ## Tecnologias
 O projeto utiliza as seguintes tecnologias:
 
-- **Backend:** Python com Django
+- **Backend:** Java SpringBoot
 - **Frontend:** Vue.js
 - **Banco de Dados:** MariaDB
 
