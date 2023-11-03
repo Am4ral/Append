@@ -1,3 +1,4 @@
+
 # Regras de Verificação e Análise de Requisitos
 - Os requisitos não funcionais possuem a nomeclatura RNF seguido de um número de identificação único
 
