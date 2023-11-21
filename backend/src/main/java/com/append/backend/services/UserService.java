@@ -41,6 +41,9 @@ public class UserService {
     public UserDTO insert(UserDTO dto) {
         User entity = new User();
         entity.setName(dto.getName());
+        entity.setName(dto.getName());
+        entity.setEmail(dto.getEmail());
+        entity.setPassword(dto.getPassword());
         entity = repository.save(entity);
         return new UserDTO(entity);
 
@@ -50,6 +53,8 @@ public class UserService {
         try {
             User entity = repository.getReferenceById(id);
             entity.setName(dto.getName());
+            entity.setEmail(dto.getEmail());
+            entity.setPassword(dto.getPassword());
             entity = repository.save(entity);
             return new UserDTO(entity);
         }
