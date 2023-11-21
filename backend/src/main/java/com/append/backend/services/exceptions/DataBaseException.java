@@ -2,11 +2,11 @@ package com.append.backend.services.exceptions;
 
 import java.io.Serial;
 
-public class EntityNotFoundException extends RuntimeException{
+public class DataBaseException extends RuntimeException{
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public EntityNotFoundException(String m){
+    public DataBaseException(String m){
         super(m);
     }
 }

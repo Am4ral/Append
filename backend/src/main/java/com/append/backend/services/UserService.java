@@ -3,8 +3,13 @@ package com.append.backend.services;
 import com.append.backend.dto.UserDTO;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.entities.User;
-import com.append.backend.services.exceptions.EntityNotFoundException;
+import com.append.backend.services.exceptions.DataBaseException;
+import com.append.backend.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.GenerationType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +34,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public UserDTO findById(Long id){
         Optional<User> obj = repository.findById(id);
-        User entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity Not Found"));
+        User entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity Not Found"));
         return new UserDTO(entity);
     }
     @Transactional
@@ -39,5 +44,30 @@ public class UserService {
         entity = repository.save(entity);
         return new UserDTO(entity);
 
+    }
+    @Transactional
+    public UserDTO update(UserDTO dto, Long id){
+        try {
+            User entity = repository.getReferenceById(id);
+            entity.setName(dto.getName());
+            entity = repository.save(entity);
+            return new UserDTO(entity);
+        }
+        catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Id " + id + "was not foun!");
+        }
+    }
+
+
+    public void delete(Long id) {
+        try{
+            repository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException e){
+            throw new ResourceNotFoundException("Id " + id + "was not foun!");
+        }
+        catch (DataIntegrityViolationException e){
+            throw new DataBaseException("Integrity violation!");
+        }
     }
 }
