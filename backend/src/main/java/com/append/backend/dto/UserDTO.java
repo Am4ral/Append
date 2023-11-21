@@ -2,7 +2,12 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.User;
 
-public class UserDTO {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private long id;
     private String name;
 
