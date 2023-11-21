@@ -1,7 +1,7 @@
 package com.append.backend.resources;
 
-import com.append.backend.dto.UserDTO;
-import com.append.backend.services.UserService;
+import com.append.backend.dto.HouseDTO;
+import com.append.backend.services.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,39 +12,39 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/houses")
+public class HouseResource {
 
     @Autowired
-    private UserService service;
+    private HouseService service;
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> findAll(){
-        List<UserDTO> list = service.findAll();
+    public ResponseEntity<List<HouseDTO>> findAll(){
+        List<HouseDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> findById(@PathVariable Long id){
-        UserDTO dto = service.findById(id);
+    public ResponseEntity<HouseDTO> findById(@PathVariable Long id){
+        HouseDTO dto = service.findById(id);
         return ResponseEntity.ok().body(dto);
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> add(@RequestBody UserDTO dto){
+    public ResponseEntity<HouseDTO> add(@RequestBody HouseDTO dto){
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto){
+    public ResponseEntity<HouseDTO> update(@PathVariable Long id, @RequestBody HouseDTO dto){
         dto = service.update(dto, id);
         return ResponseEntity.ok().body(dto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> delete(@PathVariable Long id){
+    public ResponseEntity<HouseDTO> delete(@PathVariable Long id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
