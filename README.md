@@ -28,6 +28,9 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 ## Funcionalidades
 <a name="Funcionalidades"></a>
 
+### Interface
+  - [Prototipação](https://www.figma.com/file/kLX4mMwaRc1pCUjucsqpYW/App%C3%AAnd?type=design&node-id=0%3A1&mode=design&t=tYKmfjELc4TkLqLJ-1)
+
 ### Geral
 - Listagem de vagas em imóveis/repúblicas
 - Cadastro/Alteração/Exclusão de Vagas;
@@ -91,7 +94,7 @@ _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
 - Mensagem simples, objetiva e com uma descrição breve do problema resolvido.
 - Seguir o padrão "Mensagem Verbo". Ex.: "Classe UserService refatorada".
 - Preservar a atomicidade dos commits.
-- Os commits devem, quando possível, estarem mapeados com o backlog do projeto
+- Os commits devem, quando possível, estarem mapeados com o backlog do projeto.
 
 ### Branches
 
@@ -116,7 +119,7 @@ _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
 - Utilizar a convenção de nomenclatura Camel Case em classes, métodos e variáveis.
 - Cada função, classe ou módulo deve ter uma responsabilidade única, ou seja, ser coesa.
 - Se necessário, usar comentários para explicar por que o código está fazendo algo específico.
-- Evitar repetição de código. A duplicação pode levar a erros e tornar o código mais difícil de manter.
+- Evitar repetição de código. A duplicação pode levar a erros e tornar o código mais difícil de realizar manutenções.
 - Organizar o código de uma maneira lógica, com funções relacionadas agrupadas e conceitos relacionados próximos uns dos outros.
 
 
