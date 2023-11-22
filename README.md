@@ -28,7 +28,8 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 ## Funcionalidades
 <a name="Funcionalidades"></a>
 
--[Prototipação](https://www.figma.com/file/kLX4mMwaRc1pCUjucsqpYW/App%C3%AAnd?type=design&node-id=0%3A1&mode=design&t=tYKmfjELc4TkLqLJ-1)
+### Interface
+  - [Prototipação](https://www.figma.com/file/kLX4mMwaRc1pCUjucsqpYW/App%C3%AAnd?type=design&node-id=0%3A1&mode=design&t=tYKmfjELc4TkLqLJ-1)
 
 ### Geral
 - Listagem de vagas em imóveis/repúblicas
