@@ -10,7 +10,7 @@
 # Append
   PO: [Guilherme Cordeiro](https://github.com/GuisCordeiro)</br>
   Front-end: [Lucas Lopes](https://github.com/lucaslopesxx)</br>
-  Back-end: [Marco Túlio Aamral](https://github.com/Am4ral)
+  Back-end: [Marco Túlio Amaral](https://github.com/Am4ral)
 
 
 ## Descrição do Projeto
@@ -19,10 +19,14 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 ## Tabela de Conteúdos
 - [Funcionaldidades](#Funcionalidades)
 - [Tecnologias](#Tecnologias)
+- [Estrutura de Diretório](#estrutura-diretorio)
+- [Padrões de uso do Git](#git)
+- [Regras e Boas Práticas de Codificação](#regras-codificacao)
 - [Contribuição](#Contribuição)
 - [Licença](#Licença)
 
 ## Funcionalidades
+<a name="Funcionalidades"></a>
 
 ### Geral
 - Listagem de vagas em imóveis/repúblicas
@@ -55,15 +59,69 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 
 
 ## Tecnologias
+<a name="Tecnologias"></a>
 O projeto utiliza as seguintes tecnologias:
 
 - **Backend:** ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 - **Frontend:** ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-- **Banco de Dados:** ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+- **Banco de Dados:** H2
 
 _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
 
+## Estrutura de Diretório
+<a name="estrutura-diretorio"></a>
+
+```sh
+|-- Documentacao/
+|   |-- Diagramas/
+|   |-- Requisitos/
+|-- Padroes_Adotados/
+|-- Sistema/
+|   |-- backend/
+|   |   |-- TODO
+|   |-- frontend/
+|   |   |-- TODO
+|-- README.md
+```
+
+## Regras e Padrões de uso do Git
+<a name="git"></a>
+### Commits
+
+- Mensagem simples, objetiva e com uma descrição breve do problema resolvido.
+- Seguir o padrão "Mensagem Verbo". Ex.: "Classe UserService refatorada".
+- Preservar a atomicidade dos commits.
+- Os commits devem, quando possível, estarem mapeados com o backlog do projeto
+
+### Branches
+
+- Utilizar as branches "backend" e "frontend" para códigos de back-end e front-end, respectivamente.
+- O merge de branches com a main só será realizado após os testes e com a aprovação de dois membros da equipe no GitHub.
+- Nomes de branches devem possuir apenas letras minúsculas.
+
+### Organização
+- Código e documentação devem sempre estar em pastas separadas.
+
+### Arquivos ignorados
+- Inserir no arquivo .gitignore a extensão dos arquivos que são gerados durante o processo de compilação ou log (Ex.: .class, .jar, .log).
+- Inserir no arquivo .gitignore pastas e extensões de arquivos relacionados a dependências externas. (Ex.:/.mvn/, /target/).
+- - Inserir no arquivo .gitignore pastas e extensões de arquivos relacionados a editores e IDEs. (Ex.:/.idea/, /.vscode/).
+
+## Regras e Boas Práticas de Codificação
+
+<a name="regras-codificacao"></a>
+
+- Identar o código corretamente.
+- Nomear classes, métodos e variáveis de maneira intuitiva e padronizada para melhorar a reutilização de código.
+- Utilizar a convenção de nomenclatura Camel Case em classes, métodos e variáveis.
+- Cada função, classe ou módulo deve ter uma responsabilidade única, ou seja, ser coesa.
+- Se necessário, usar comentários para explicar por que o código está fazendo algo específico.
+- Evitar repetição de código. A duplicação pode levar a erros e tornar o código mais difícil de manter.
+- Organizar o código de uma maneira lógica, com funções relacionadas agrupadas e conceitos relacionados próximos uns dos outros.
+
+
 ## Contribuição
+<a name="Contribuição"></a>
 Se você tiver uma sugestão que tornaria o Append melhor, por favor, faça um fork do repositório e crie um pull request. Você também pode simplesmente abrir um problema issue com a etiqueta melhoria.
 
 Faça um fork do Projeto
@@ -73,6 +131,7 @@ Envie para o Ramo com git push origin feature/NovaFuncionalidade
 Abra um Pull Request 
 
 ## Licença
+<a name="Licença"></a>
 [MIT License](LICENSE)
 
 
