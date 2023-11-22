@@ -72,7 +72,7 @@ _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
 <a name="estrutura-diretorio"></a>
 
 ```sh
-|-- Documentação/
+|-- Documentacao/
 |   |-- Diagramas/
 |   |-- Requisitos/
 |-- Padroes_Adotados/
@@ -89,7 +89,7 @@ _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
 ### Commits
 
 - Mensagem simples, objetiva e com uma descrição breve do problema resolvido.
-- Seguir o padrão "Mensagem Verbo". Ex.: "Classe UserService reftorada".
+- Seguir o padrão "Mensagem Verbo". Ex.: "Classe UserService refatorada".
 - Preservar a atomicidade dos commits.
 - Os commits devem, quando possível, estarem mapeados com o backlog do projeto
 
