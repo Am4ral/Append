@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2023-11-22T17:59:17.539Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="09BD7cmATQvXrErSHs2i" version="22.1.3" type="device">
+  <diagram name="Page-1" id="pFzTQXnIGdcc0FafYIdJ">
+    <mxGraphModel dx="2074" dy="1139" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-4" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="150" y="80" width="320" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-1" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-4">
+          <mxGeometry width="320" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Client&lt;br&gt;(React fontend)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-4">
+          <mxGeometry x="25" y="30" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-3" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Chrome 119&lt;/font&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-4">
+          <mxGeometry x="50" y="110" width="185" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-5" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="170" y="510" width="320" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-6" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-5">
+          <mxGeometry x="-9.85" width="320" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-7" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Application Server&lt;br&gt;(Spring Boot Backend)&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-5">
+          <mxGeometry x="25" y="48" width="180" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-8" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Java 17&lt;br&gt;&lt;br&gt;&lt;/span&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-5">
+          <mxGeometry x="59.7" y="137" width="180.3" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-9" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Spring Boot 2.7&lt;br&gt;&lt;/span&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-5">
+          <mxGeometry x="59.7" y="210" width="180.3" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-16" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;H2 2.2&lt;br&gt;&lt;/span&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="GhP_t7FgvfW1k8xxzlbb-5">
+          <mxGeometry x="60" y="280" width="180.3" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=170;exitDy=200;exitPerimeter=0;" edge="1" parent="1" source="GhP_t7FgvfW1k8xxzlbb-1" target="GhP_t7FgvfW1k8xxzlbb-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GhP_t7FgvfW1k8xxzlbb-17" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;HTTP/HTTPS Requests&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="360" width="210" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
