@@ -1,0 +1,6 @@
+
+.header-background{
+    background-color: var(--color-orange);
+    height: 6vh;
+    width: 100vw;
+}
