@@ -65,9 +65,9 @@ O projeto se trata de uma aplicação web para a divulgação de apartamentos, p
 <a name="Tecnologias"></a>
 O projeto utiliza as seguintes tecnologias:
 
-- **Backend:** ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-- **Frontend:** ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-- **Banco de Dados:** H2
+- **Backend:** ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) 17 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) 2.7
+- **Frontend:** ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 18.2
+- **Banco de Dados:** H2 2.2
 - **Servidor:** Apache
 
 _As tecnologias podem ser alteradas durante a fase de desenvolvimento!_
