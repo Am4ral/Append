@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 
 function Login() {
   return (
-    <html>
-      <body>
-        <section className='login-page-content'>
+    <section className='login-page'>
+      <section className='login-page-content'>
           <section className='login-logo-content'>
             <img src={logo} alt='logo' className='login-logo-image'/>
             <p className='login-logo-slogan'>encontrando o lugar ideal para você</p>
@@ -27,15 +26,14 @@ function Login() {
 
               <button type='submit' className='login-form-button'>Enviar</button>
 
-              <p className='login-form-register'>Não possui cadastro?<span> <Link to={'/app'} className='login-form-register link'>
+              <p className='login-form-register'>Não possui cadastro?<span> <Link to={'/app'} className='login-form-register login-form-register-link'>
                     Cadastre-se
                   </Link></span>
                 </p>
             </form>
         </section>
-      </body>
-    </html>
-  );
+    </section>
+      );
 }
 
 export default Login;
