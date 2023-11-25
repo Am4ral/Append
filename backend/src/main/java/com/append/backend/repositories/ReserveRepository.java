@@ -1,6 +1,5 @@
 package com.append.backend.repositories;
 
-import com.append.backend.entities.House;
 import com.append.backend.entities.Reserve;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
