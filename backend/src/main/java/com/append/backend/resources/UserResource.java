@@ -1,6 +1,8 @@
 package com.append.backend.resources;
 
 import com.append.backend.dto.UserDTO;
+import com.append.backend.dto.UserInsertDTO;
+import com.append.backend.dto.UserUpdateDTO;
 import com.append.backend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -31,15 +34,15 @@ public class UserResource {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> add(@RequestBody UserDTO dto){
-        dto = service.insert(dto);
+    public ResponseEntity<UserDTO> add(@Valid @RequestBody UserInsertDTO insertDTO){
+        UserDTO dto = service.insert(insertDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto){
-        dto = service.update(dto, id);
+    public ResponseEntity<UserDTO> update(@Valid @RequestBody UserUpdateDTO updateDto, @PathVariable Long id){
+        UserDTO dto = service.update(updateDto, id);
         return ResponseEntity.ok().body(dto);
     }
 

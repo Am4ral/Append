@@ -2,12 +2,14 @@ package com.append.backend.resources;
 
 import com.append.backend.dto.HouseDTO;
 import com.append.backend.services.HouseService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -31,14 +33,14 @@ public class HouseResource {
     }
 
     @PostMapping
-    public ResponseEntity<HouseDTO> add(@RequestBody HouseDTO dto){
+    public ResponseEntity<HouseDTO> add(@Valid @RequestBody HouseDTO dto){
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<HouseDTO> update(@PathVariable Long id, @RequestBody HouseDTO dto){
+    public ResponseEntity<HouseDTO> update(@PathVariable Long id, @Valid @RequestBody HouseDTO dto){
         dto = service.update(dto, id);
         return ResponseEntity.ok().body(dto);
     }

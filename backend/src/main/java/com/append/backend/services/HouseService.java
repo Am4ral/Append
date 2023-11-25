@@ -60,7 +60,7 @@ public class HouseService {
             return new HouseDTO(entity);
         }
         catch (EntityNotFoundException e) {
-            throw new ResourceNotFoundException("Id " + id + "was not found!");
+            throw new ResourceNotFoundException("Id " + id + " was not found!");
         }
     }
 
@@ -69,7 +69,7 @@ public class HouseService {
             houseRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
-            throw new ResourceNotFoundException("Id " + id + "was not foun!");
+            throw new ResourceNotFoundException("Id " + id + " was not found!");
         }
         catch (DataIntegrityViolationException e){
             throw new DataBaseException("Integrity violation!");

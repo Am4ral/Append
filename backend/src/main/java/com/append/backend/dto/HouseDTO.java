@@ -3,29 +3,31 @@ package com.append.backend.dto;
 
 
 import com.append.backend.entities.House;
-import com.append.backend.entities.User;
-import jakarta.persistence.*;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.Instant;
-import java.util.Objects;
 
 
 public class HouseDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private UserDTO owner;
+    @NotBlank
     private String street;
+    @NotBlank
     private String district;
+    @Positive
     private long number;
+    @NotBlank
     private String info; //Apt. number, reference points
-
+    @Positive
     private double price;
+    @NotBlank
     private String imgURL;
 
     public HouseDTO() {}

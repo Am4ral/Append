@@ -82,8 +82,7 @@ public class ReserveService {
         User owner =  userRepository.getReferenceById(dto.getOwner().getId());
         entity.setOwner(owner);
 
-        User renter =  userRepository.getReferenceById(dto.getOwner().getId());
-        entity.setOwner(owner);
+        User renter =  userRepository.getReferenceById(dto.getRenter().getId());
         entity.setRenter(renter);
     }
 }

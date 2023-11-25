@@ -14,12 +14,8 @@ import java.io.Serializable;
 public class ReserveDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private UserDTO owner;
-
     private UserDTO renter;
 
 
@@ -33,7 +29,7 @@ public class ReserveDTO implements Serializable {
     public ReserveDTO(Reserve entity){
         this.id = entity.getId();
         this.owner = new UserDTO(entity.getOwner());
-        this.renter = new UserDTO(entity.getOwner());
+        this.renter = new UserDTO(entity.getRenter());
 
     }
 
