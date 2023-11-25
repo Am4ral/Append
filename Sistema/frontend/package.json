@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='../host' react-scripts build",
+    "build": "react-scripts build && mv build ../host || move build ../host",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
