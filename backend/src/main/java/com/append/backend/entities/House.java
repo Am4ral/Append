@@ -2,7 +2,7 @@ package com.append.backend.entities;
 
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;

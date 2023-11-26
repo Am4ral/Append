@@ -10,7 +10,7 @@ import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.services.exceptions.DataBaseException;
 import com.append.backend.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -56,7 +56,7 @@ public class ReserveService {
     @Transactional
     public ReserveDTO update(ReserveDTO dto, Long id){
         try {
-            Reserve entity = reserveRepository.getReferenceById(id);
+            Reserve entity = reserveRepository.getOne(id);
             copyDtoEntity(dto, entity);
             entity = reserveRepository.save(entity);
             return new ReserveDTO(entity);
@@ -79,10 +79,10 @@ public class ReserveService {
     }
 
     private void copyDtoEntity(ReserveDTO dto, Reserve entity){
-        User owner =  userRepository.getReferenceById(dto.getOwner().getId());
+        User owner =  userRepository.getOne(dto.getOwner().getId());
         entity.setOwner(owner);
 
-        User renter =  userRepository.getReferenceById(dto.getRenter().getId());
+        User renter =  userRepository.getOne(dto.getRenter().getId());
         entity.setRenter(renter);
     }
 }
