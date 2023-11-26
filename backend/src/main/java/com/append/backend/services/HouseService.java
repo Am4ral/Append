@@ -8,7 +8,7 @@ import com.append.backend.repositories.HouseRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.services.exceptions.DataBaseException;
 import com.append.backend.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -54,7 +54,7 @@ public class HouseService {
     @Transactional
     public HouseDTO update(HouseDTO dto, Long id){
         try {
-            House entity = houseRepository.getReferenceById(id);
+            House entity = houseRepository.getOne(id);
             copyDtoEntity(dto, entity);
             entity = houseRepository.save(entity);
             return new HouseDTO(entity);
@@ -77,7 +77,7 @@ public class HouseService {
     }
 
     private void copyDtoEntity(HouseDTO dto, House entity){
-        User owner =  userRepository.getReferenceById(dto.getOwner().getId());
+        User owner =  userRepository.getOne(dto.getOwner().getId());
         entity.setOwner(owner);
         entity.setStreet(dto.getStreet());
         entity.setDistrict(dto.getDistrict());

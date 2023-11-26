@@ -3,9 +3,7 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.House;
 import com.append.backend.entities.Reserve;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
