@@ -2,7 +2,6 @@ package com.append.backend.entities;
 
 
 
-import com.append.backend.dto.RoleDTO;
 import javax.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -46,7 +45,7 @@ public class User implements UserDetails, Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
