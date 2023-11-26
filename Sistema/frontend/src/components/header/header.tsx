@@ -4,10 +4,11 @@ import menu from '../../assets/iconeMenu.svg'
 import { Link } from 'react-router-dom'
 
 function header() {
+
     return (
-        <section className="header-background">
+        <section className="header">
             <section className='header-content'>
-                <Link to={'/app'} className='logo-link'>
+                <Link to={'/home'} className='logo-link'>
                     <img src={logo} className="header-logo" alt="logo" />
                 </Link>
                 <img src={menu} className='header-menu-icon' alt='menu icon'/>
@@ -15,5 +16,6 @@ function header() {
         </section>
     )
 }
+
 
 export default header

@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Lucas",
+        "rule": "renter",
+        "admin": "true",
+        "email": "lucasalvarengalopes@gmail.com",
+        "password":"12345"
+    },
+    {
+        "name": "Marco Túlio",
+        "rule": "locator",
+        "admin": "false",
+        "email": "marcotulio@gmail.com",
+        "password":"12345"
+    },
+    {
+        "name": "Guilherme",
+        "rule": "renter",
+        "admin": "false",
+        "email": "guilherme@gmail.com",
+        "password":"12345"
+    }
+]

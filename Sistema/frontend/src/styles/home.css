@@ -1,0 +1,32 @@
+.home{
+    height: 100vh;
+    display: grid;
+}
+
+.home-dashboard{
+    display: flex;
+    flex-direction: column;
+    grid-row-start: 2;
+    gap: 4vw;
+    align-self: self-start;
+}
+    
+.home-dashboard-tittle{
+    text-align: center;
+    font-family: var(--font-rowdies);
+    font-weight: 400;
+    font-size: 5vw;
+    color: var(--color-orange);
+}
+
+@media screen and (orientation: portrait) {
+    .home-dashboard{
+        width: max-content;
+        justify-self: center;
+}
+
+
+    .home-dashboard-tittle{
+        font-size: 9vw;
+    }
+}

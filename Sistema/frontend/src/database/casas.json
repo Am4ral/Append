@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Exemplo 1",
+      "address": "Rua Exemplo, 123",
+      "price": 1000,
+      "picture": "https://casacor.abril.com.br/wp-content/uploads/sites/7/2022/01/Casa-Liu-Raiz-Arquitetura-Foto-Leonardo-Giantomasi-2.jpg?quality=90&strip=info"
+    },
+    {
+      "name": "Exemplo 2",
+      "address": "Avenida Teste, 456",
+      "price": 1500,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHFaBUcXEg0ZV5bbztUgZEILwR618PueqacQ0-i8Q346keRGg1dNOMTjw5TTmppbBk7D4&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 3",
+      "address": "Praça Amostra, 789",
+      "price": 750,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5m1w9dwbOYbA9suH4h4aQnVwiwcXq1xnioJ6OTIJpOH0yCzKG3M2shseT1tgzACavI9E&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 4",
+      "address": "Rua Exemplo, 123",
+      "price": 1000,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz2BLKA616XueY6A9EM0zhqbsZCGP7hJh8eYKIK_mw5712GPwZvhepDxMUudQKyEHMOZQ&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 5",
+      "address": "Avenida Teste, 456",
+      "price": 1500,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRStMaYlkMI-DvBIFokIIyWCZH0KrvW8LYhJVvJUGPPjBAS4uDU5oIoc2wKxTtYE0pb-7o&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 6",
+      "address": "Praça Amostra, 789",
+      "price": 750,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLgyPMsbEMq_4gkdLR9ETdnphwkFvXw7enm60w5giNLeOFEHIOUGB25vYtfGiBvOgjw7c&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 7",
+      "address": "Rua Exemplo, 123",
+      "price": 1000,
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWbJ-fzFh2ys5qPnbd3KBPRdKQyXy_Fk_WGS9ZGLMQ2zgg5h7IdtRt4OJH6Zgd25DA_7U&usqp=CAU"
+    },
+    {
+      "name": "Exemplo 8",
+      "address": "Avenida Teste, 456",
+      "price": 1500,
+      "picture": "https://i.pinimg.com/originals/ba/12/82/ba1282c8209a60e20b1a8fcf3a42d944.jpg"
+    }
+  ]
+  

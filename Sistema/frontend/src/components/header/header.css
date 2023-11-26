@@ -1,14 +1,19 @@
-.header-background {
+.header {
+    display: block;
     background-color: var(--color-orange);
-    width: 100vw;
-    padding: 1% 0 1% 0;
+    width: 100%;
+    padding: 1% 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
 }
 
 .header-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 2% 0 2%;
+    margin: 0 2%;
 }
 
 .header-logo {
@@ -23,4 +28,18 @@
 .logo-link{
     display: flex;
     justify-content: center;
+}
+
+@media screen and (orientation: portrait) {
+    .header{
+        padding: 2.5% 0;
+    }
+
+    .header-logo{
+        width: 21vw;
+    }
+
+    .header-menu-icon{
+        width: 7vw;
+    }
 }

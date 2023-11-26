@@ -1,0 +1,36 @@
+.locator-dashboard-background{
+    position: fixed;
+    z-index: 0;
+    justify-content: end;
+    top: 20%;
+    right: 5%;
+    width: 40vw;
+}
+
+.locator-dashboard-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    margin: 10vw 7vw 5vw 7vw;
+    position: relative;
+    z-index: 1;
+    
+}
+.locator-dashboard-list-item{
+    width: max-content;
+}
+
+@media screen and (orientation: portrait){
+
+    .locator-dashboard-background{
+        width: 150vw;
+        top: 17.5%;
+        left: 20%;
+        opacity: 0.45;
+    }
+
+    .locator-dashboard-list{
+        margin: 20vw 0 7vw 0;
+    }
+}

@@ -1,0 +1,45 @@
+.square-card{
+    border-radius: 2vw;
+    width: 18vw;
+    height: 18vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+
+.square-card-text{
+    text-align: center;
+    color: var(--color-white);
+    font-weight: 400;
+    font-size: 1.5vw;
+    font-family: var(--font-rowdies);
+    width: 100%;
+    background-color: var(--color-orange);
+    padding-bottom: 0.5vw;
+}
+
+@media screen and (orientation: portrait){
+    .square-card{
+        border-radius: 5vw;
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .square-card-text{
+        text-align: center;
+        color: var(--color-white);
+        font-weight: 400;
+        font-size: 4vw;
+        font-family: var(--font-rowdies);
+        background-color: var(--color-orange);
+        padding-bottom: 0.5vw;
+    }
+}
