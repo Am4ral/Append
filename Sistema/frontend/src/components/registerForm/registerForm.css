@@ -1,0 +1,77 @@
+.register-form{
+    display: grid;
+    justify-items: center;
+    gap: 0.5vw;
+}
+
+.register-form-tittle{
+    font-family: var(--font-montserrat);
+    font-size: 5vw;
+    font-weight: w800;
+    margin-bottom: 1vw;
+}
+
+.register-form-label-input{
+    display: grid;
+}
+
+.register-form-label{
+    font-size: 1.25vw;
+    color: var(--color-black);
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+}
+
+.register-form-input{
+    width: 25vw;
+    margin-top: 0.55vw;
+    background-color: var(--color-white);
+    border: 0;
+    border-radius: 1vw;
+    font-size: 1.25vw;
+    padding: 0.75vw 0.5vw;
+    text-decoration: none;
+}
+
+.register-form-button{
+    border: 0;
+    border-radius: 1vw;
+    background-color: var(--color-red);
+    padding: 1.5vw 3.5vw;
+    margin-top: 2.5vw;
+    color: var(--color-white);
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 1.25vw;
+    cursor: pointer;
+}
+
+
+@media screen and (orientation: portrait){
+    
+    .register-form{
+        gap: 3.5vw;
+    }
+
+    .register-form-tittle{
+        font-size: 10vw;
+    }
+
+    .register-form-label{
+        font-size: 3vw;
+    }
+
+    .register-form-input{
+        width: 75vw;
+        font-size: 3.5vw;
+        border-radius: 2.5vw;
+        padding: 2vw;
+        margin-top: 2vw;
+    }
+
+    .register-form-button{
+        font-size: 3.5vw;
+        border-radius: 2.5vw;
+        padding: 4vw 8vw;
+    }
+}
