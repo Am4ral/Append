@@ -2,11 +2,28 @@ import Casas from '../../database/casas.json'
 import ListCard from '../listCard/listCard';
 import './locatorDashboard.css'
 import BackgroundImage from '../../assets/locatorBackground.svg'
-import { title } from 'process';
+import { useState } from 'react';
+import AddHouseForm from '../addHouseForm/addHouseForm';
 
 const LocatorDashboard = () => {
+    const[showHouseRegister, setShowHouseRegister] = useState(false)
+
+    function showForm(){
+        setShowHouseRegister(!showHouseRegister)
+    }
+
     return ( 
-        <div className='locator-dashboard'>
+        <div>
+            <div>
+                {showHouseRegister ? <div>
+                    <div className='add-house-form-background' onClick={showForm}></div>
+                    <AddHouseForm onClose={() => setShowHouseRegister(!showHouseRegister)}/>
+                </div> : <></>
+                }
+            </div>
+            <div className='locator-dashboard'>
+            <button type='button' onClick={showForm} className='locator-dashboard-add-house-button'>Cadastrar Imóvel</button>
+            
             <img src={BackgroundImage} alt='' className='locator-dashboard-background'/>
             <ul className="locator-dashboard-list">
                 {Casas.map((item, index) => (
@@ -17,7 +34,9 @@ const LocatorDashboard = () => {
                 
                 )}
             </ul>
+            </div>
         </div>
+        
      );
 }
  

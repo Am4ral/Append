@@ -22,7 +22,7 @@
 @media screen and (orientation: portrait) {
     .home-dashboard{
         width: max-content;
-        justify-self: center;
+        align-self: center;
 }
 
 

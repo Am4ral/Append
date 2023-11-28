@@ -1,3 +1,4 @@
+import FormButton from '../formButton/formButton';
 import './loginForm.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +20,7 @@ function LoginForm() {
                 <input type='password' name='password' title='password' className='login-form-input' required></input>
               </div>
 
-              <button type='submit' className='login-form-button' onClick={()=>navigate('/home')}>Enviar</button>
+              <FormButton func={()=>navigate('/home')} text='Enviar' type='submit'/>
 
             </form>
     );

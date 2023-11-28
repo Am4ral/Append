@@ -1,3 +1,12 @@
+.locator-dashboard{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 9.2vw;
+    left: 5vw;
+    align-items: start;
+}
+
 .locator-dashboard-background{
     position: fixed;
     z-index: 0;
@@ -12,7 +21,6 @@
     display: flex;
     flex-direction: column;
     gap: 2vw;
-    margin: 10vw 7vw 5vw 7vw;
     position: relative;
     z-index: 1;
     
@@ -21,16 +29,32 @@
     width: max-content;
 }
 
+.locator-dashboard-add-house-button{
+    color: var(--color-white);
+    background-color: var(--color-red);
+    border: none;
+    font-size: 2vw;
+    cursor: pointer;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    padding: 1vw 10vw;
+    margin-bottom: 4.5vw;
+    border-radius: 1vw;
+}
+
 @media screen and (orientation: portrait){
+
+    .locator-dashboard{
+        top: 20vw;
+        left: 0;
+        right: 0;
+        align-items: center;
+    }
 
     .locator-dashboard-background{
         width: 150vw;
         top: 17.5%;
         left: 20%;
         opacity: 0.45;
-    }
-
-    .locator-dashboard-list{
-        margin: 20vw 0 7vw 0;
     }
 }
