@@ -10,7 +10,7 @@ import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.services.exceptions.DataBaseException;
 import com.append.backend.services.exceptions.ResourceNotFoundException;
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

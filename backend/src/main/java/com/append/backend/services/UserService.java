@@ -10,7 +10,7 @@ import com.append.backend.repositories.UserRepository;
 import com.append.backend.entities.User;
 import com.append.backend.services.exceptions.DataBaseException;
 import com.append.backend.services.exceptions.ResourceNotFoundException;
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

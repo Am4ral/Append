@@ -2,11 +2,11 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.Role;
 
-import java.io.Serial;
+
 import java.io.Serializable;
 
 public class RoleDTO implements Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
     private Long id;
     private String authority;

@@ -2,12 +2,12 @@ package com.append.backend.entities;
 
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serial;
+
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Entity
 @Table(name = "tb_users")
 public class User implements UserDetails, Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -39,6 +39,14 @@ public class User implements UserDetails, Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String name, String email, String password, Set<Role> roles) {
+
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     public long getId() {

@@ -1,16 +1,16 @@
 package com.append.backend.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.io.Serial;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.io.Serializable;
 
 @Entity
 @Table(name = "tb_reserves")
 public class Reserve implements Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
 
     @Id
