@@ -7,7 +7,7 @@ const RenterDashboard = () => {
         <ul className="renter-dashboard-list">
                 {Casas.map((item, index) => (
                     <li>
-                        <SquareCard src={item.picture} alt={item.name}/>
+                        <SquareCard picture={item.picture} name={item.name} price={item.price} address={item.address} />
                     </li>
                 )
                 

@@ -1,11 +1,14 @@
+import FormButton from '../formButton/formButton';
 import './loginForm.css'
 import {useNavigate} from 'react-router-dom';
 import api from "../../services /API";
 import {useState, useRef, useEffect, useContext} from "react";
 import AuthContext from "../../context/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
 const LoginForm = () => {
-    const setAuth = useContext(AuthContext);
+    // @ts-ignore
+    const { setAuth } = useAuth();
     const userRef = useRef();
     const navigate = useNavigate();
 
@@ -75,8 +78,7 @@ const LoginForm = () => {
                 />
             </div>
 
-            <button type='submit' className='login-form-button'>Entrar</button>
-
+            <FormButton  text='Enviar' type='submit'/>
         </form>
 
     );

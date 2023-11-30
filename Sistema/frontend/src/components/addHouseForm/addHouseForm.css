@@ -1,0 +1,118 @@
+.add-house-form-background{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-black);
+    position: fixed;
+    top: 0;
+    opacity: 0.25;
+    z-index: 9;
+}
+
+.add-house-form-content{
+    width: 75vw;
+    height: 35vw;
+    background-color: var(--color-white);
+    padding: 2.75vw 2.5vw 2vw 2.5vw;
+    border-radius: 2vw;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.add-house-form-content h1{
+    text-align: center;
+    font-family: var(--font-rowdies);
+    font-weight: 400;
+    font-size: 1.75vw;
+}
+
+.add-house-form-close-button{
+    position: fixed;
+    left: 85.5vw;
+    top: 6vw;
+    z-index: 11;
+    border: none;
+    background-color: transparent;
+    color: var(--color-black);
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 2.5vw;
+    cursor: pointer;
+}
+
+.add-house-form-fields{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 2vw 0;
+}
+
+.add-house-form-fields-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: max-content;
+    align-items: center;
+}
+
+.add-house-form-button{
+    margin-top: 0.75vw;
+}
+
+.add-house-form-fields-text-input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25vw;
+}
+
+.add-house-form-fields-text-input label{
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 1.25vw;
+}
+
+.add-house-form-fields-text-input input{
+    border: none;
+    background-color: var(--color-lightGray);
+    width: max-content;
+    padding: 1vw;
+    width: 25vw;
+    font-size: 1.25vw;
+    border-radius: 1vw;
+}
+
+.add-house-form-fields-image{
+    background-color: var(--color-lightGray);
+    width: 22vw;
+    height: 80%;
+    border-radius: 2vw;
+    justify-self: end;
+    margin: 0 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.add-house-form-fields-image-upload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 8vw;
+    margin-bottom: 2vw;
+    height: max-content;
+}
+
+.add-house-form-fields-image-upload img{
+    width: 5vw;
+}
+
+.add-house-form-fields-image-upload p{
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 1.6vw;
+}
