@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './registerForm.css'
 import useAuth from "../../hooks/useAuth";
 import {useEffect, useRef, useState} from "react";
-import api from "../../services /API";
+import api from "../../services/API";
 
 function ResgisterForm() {
     // @ts-ignore

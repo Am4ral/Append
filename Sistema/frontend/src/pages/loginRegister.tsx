@@ -3,7 +3,7 @@ import '../styles/loginRegister.css'
 import logo from '../assets/orangeLogo.svg'
 import LoginForm from '../components/loginForm/loginForm';
 import RegisterForm from '../components/registerForm/registerForm';
-import api from "../services /API";
+import api from "../services/API";
 
 
 function LoginRegister() {

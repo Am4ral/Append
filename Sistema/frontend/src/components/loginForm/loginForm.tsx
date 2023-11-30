@@ -1,7 +1,7 @@
 import FormButton from '../formButton/formButton';
 import './loginForm.css'
 import {useNavigate} from 'react-router-dom';
-import api from "../../services /API";
+import api from "../../services/API";
 import {useState, useRef, useEffect, useContext} from "react";
 import AuthContext from "../../context/AuthProvider";
 import useAuth from "../../hooks/useAuth";
@@ -68,7 +68,7 @@ const LoginForm = () => {
                 />
             </div>
 
-            <FormButton  text='Enviar' type='submit'/>
+            <FormButton  text='Enviar' type='submit' func={()=>{navigate('/home')}}/>
         </form>
 
     );
