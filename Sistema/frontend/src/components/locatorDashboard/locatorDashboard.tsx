@@ -22,18 +22,17 @@ const LocatorDashboard = () => {
                 }
             </div>
             <div className='locator-dashboard'>
-            <button type='button' onClick={showForm} className='locator-dashboard-add-house-button'>Cadastrar Imóvel</button>
-            
-            <img src={BackgroundImage} alt='' className='locator-dashboard-background'/>
-            <ul className="locator-dashboard-list">
-                {Casas.map((item, index) => (
-                    <li className='locator-dashboard-list-item'>
-                        <ListCard src={item.picture} tittle={item.name} price={item.price} address={item.address}/>
-                    </li>
-                )
-                
-                )}
-            </ul>
+                <button type='button' onClick={showForm} className='locator-dashboard-add-house-button'>Cadastrar Imóvel</button>
+                <img src={BackgroundImage} alt='' className='locator-dashboard-background'/>
+                <ul className="locator-dashboard-list">
+                    {Casas.map((item, index) => (
+                        <li className='locator-dashboard-list-item'>
+                            <ListCard picture={item.picture} tittle={item.tittle} price={item.price} address={item.address}/>
+                        </li>
+                    )
+                    
+                    )}
+                </ul>
             </div>
         </div>
         

@@ -28,10 +28,53 @@
     justify-content: space-between;
 }
 
+.show-house-info-form-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2vw 0 0 2vw;
+    height: 90%;
+}
+
+.show-house-info-form-text h1{
+    font-family: var(--font-rowdies);
+    font-size: 2.5vw;
+}
+
+.show-house-info-form-text-address{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.show-house-info-form-text-address p{
+    font-size: 1.5vw;
+    font-family: var(--font-montserrat);
+}
+
+.show-house-info-form-text-address span{
+    font-weight: 700;
+    font-size: 1.75vw;
+}
+
 .show-house-info-form img{
     width: 30vw;
     height: 30vw;
     object-fit: cover;
     border-radius: 2vw;
     align-self: center;
+}
+
+.show-house-info-form-close-button{
+    position: fixed;
+    left: 85.5vw;
+    top: 6vw;
+    z-index: 11;
+    border: none;
+    background-color: transparent;
+    color: var(--color-black);
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 2.5vw;
+    cursor: pointer;
 }

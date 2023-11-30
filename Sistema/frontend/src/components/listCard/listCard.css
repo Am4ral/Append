@@ -30,6 +30,20 @@
     gap: 0.5vw;
 }
 
+.list-card-icons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.list-card-icons-content{
+    width: 3vw;
+    height: 3vw;
+    object-fit: contain;
+    cursor: pointer;
+}
+
 @media screen and (orientation: portrait) {
     .list-card{
         width: 80vw;

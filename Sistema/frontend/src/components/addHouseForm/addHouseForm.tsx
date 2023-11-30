@@ -1,4 +1,3 @@
-import { EmitHint } from 'typescript'
 import FormButton from '../formButton/formButton'
 import './addHouseForm.css'
 import addImageIcon from '../../assets/addImageIcon.svg'
@@ -17,8 +16,8 @@ const AddHouseForm: FC<AddHouseFormProps> = ({onClose}) =>{
                 <div className='add-house-form-fields'>
                     <div className='add-house-form-fields-text'>
                         <div className='add-house-form-fields-text-input'>
-                            <label htmlFor="name">Nome:</label>
-                            <input title='name' placeholder='Nome do imóvel' name='name' type='text' required></input>
+                            <label htmlFor="tittle">Título:</label>
+                            <input title='tittle' placeholder='Título do imóvel' name='tittle' type='text' required></input>
                         </div>
                         <div className='add-house-form-fields-text-input'>
                             <label htmlFor="address">Endereço:</label>
