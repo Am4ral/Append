@@ -1,28 +1,76 @@
 import FormButton from '../formButton/formButton';
 import './loginForm.css'
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import api from "../../services /API";
+import {useState, useRef, useEffect, useContext} from "react";
+import AuthContext from "../../context/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
-function LoginForm() {
-  const navigate = useNavigate();
+const LoginForm = () => {
+    // @ts-ignore
+    const { setAuth } = useAuth();
+    const userRef = useRef();
+    const navigate = useNavigate();
 
-  
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    // @ts-ignore
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await api.post(
+                "/auth/login",
+                {
+                    email: email,
+                    password: password
+                });
+            console.log(JSON.stringify(response.data));
+            // @ts-ignore
+            setAuth(response.data)
+            setEmail('');
+            setPassword('');
+            navigate('/home');
+        } catch (err) {
+            console.log("EITA BIXO, E AGORA ?????", err)
+        }
+    }
+
     return (
-        <form className='login-form'>
-              <h2 className='login-form-tittle'>Login</h2>
+        <form className='login-form' onSubmit={handleSubmit}>
+            <h2 className='login-form-tittle'>Login</h2>
 
-              <div className='login-form-label-input'>
+            <div className='login-form-label-input'>
                 <label htmlFor="email" className='login-form-label'>Email:</label>
-                <input type='email' name='email' title='email' className='login-form-input' required></input>
-              </div>
-              
-              <div className='login-form-label-input'>
+                <input
+                    type='email'
+                    id="email"
+                    className='login-form-input'
+                    // @ts-ignore
+                    ref={userRef}
+                    autoComplete="on"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    required
+                />
+            </div>
+
+            <div className='login-form-label-input'>
                 <label htmlFor="password" className='login-form-label'>Senha:</label>
-                <input type='password' name='password' title='password' className='login-form-input' required></input>
-              </div>
+                <input
+                    type='password'
+                    id='password'
+                    className='login-form-input'
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    required
+                />
+            </div>
 
-              <FormButton func={()=>navigate('/home')} text='Enviar' type='submit'/>
+            <FormButton  text='Enviar' type='submit'/>
+        </form>
 
-            </form>
     );
 }
 
