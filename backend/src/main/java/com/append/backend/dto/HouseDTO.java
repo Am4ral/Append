@@ -4,15 +4,15 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.House;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
-import java.io.Serial;
+
 import java.io.Serializable;
 
 
 public class HouseDTO implements Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
 
     private long id;

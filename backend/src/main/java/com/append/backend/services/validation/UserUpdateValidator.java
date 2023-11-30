@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.append.backend.entities.User;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.dto.UserUpdateDTO;

@@ -2,15 +2,15 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.User;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Email;
-import java.io.Serial;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Email;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 public class UserDTO implements Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
     private long id;
 

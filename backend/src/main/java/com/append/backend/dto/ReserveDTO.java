@@ -3,14 +3,14 @@ package com.append.backend.dto;
 
 import com.append.backend.entities.House;
 import com.append.backend.entities.Reserve;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
-import java.io.Serial;
+
 import java.io.Serializable;
 
 
 public class ReserveDTO implements Serializable {
-    @Serial
+    
     private static final long serialVersionUID = 1L;
     private long id;
     private UserDTO owner;
