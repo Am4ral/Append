@@ -14,13 +14,6 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [success, setSuccess] = useState(false);
-
-
-    useEffect(() => {
-        // @ts-ignore
-        userRef.current.focus();
-    }, [])
 
 
     // @ts-ignore
@@ -38,7 +31,6 @@ const LoginForm = () => {
             setAuth(response.data)
             setEmail('');
             setPassword('');
-            setSuccess(true);
             navigate('/home');
         } catch (err) {
             console.log("EITA BIXO, E AGORA ?????", err)
@@ -50,7 +42,6 @@ const LoginForm = () => {
             <h2 className='login-form-tittle'>Login</h2>
 
             <div className='login-form-label-input'>
-                {email}
                 <label htmlFor="email" className='login-form-label'>Email:</label>
                 <input
                     type='email'
@@ -66,7 +57,6 @@ const LoginForm = () => {
             </div>
 
             <div className='login-form-label-input'>
-                {password}
                 <label htmlFor="password" className='login-form-label'>Senha:</label>
                 <input
                     type='password'

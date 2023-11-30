@@ -10,7 +10,6 @@ function LoginRegister() {
     const [useLoginForm, setUseLoginForm] = useState(true);
 
     function formChange() {
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
         setUseLoginForm(!useLoginForm);
     }
 
