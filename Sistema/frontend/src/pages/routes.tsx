@@ -8,7 +8,7 @@ const AppRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<LoginRegister/>}/>
-                <Route path='/home' element={<Home rule='locator'/>}/>
+                <Route path='/home' element={<Home rule='renter'/>}/>
             </Routes>
         </BrowserRouter>
     )
