@@ -42,7 +42,7 @@ public class AuthenticationResource {
 
         var token = tokenConfig.generateToken((User)auth.getPrincipal());
 
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+        return ResponseEntity.ok(new LoginResponseDTO(token, ((User) auth.getPrincipal()).getId()));
     }
 
     @PostMapping("/register")
