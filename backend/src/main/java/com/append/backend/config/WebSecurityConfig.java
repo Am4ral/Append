@@ -30,7 +30,7 @@ public class WebSecurityConfig {
 
     private static final String[] OWNER_OR_ADMIN = {"/houses/**"};
 
-    private static final String[] ADMIN = {"/users/"};
+    private static final String[] ADMIN = {"/users/**"};
 
     @Autowired
     private SecurityFilter securityFilter;
@@ -48,12 +48,10 @@ public class WebSecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC).permitAll()
-                        //.requestMatchers(HttpMethod.GET, "/user/{id}").permitAll()
-                        //.requestMatchers(HttpMethod.GET, "/houses/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, USER).hasRole("USER")
-                        .requestMatchers(HttpMethod.POST, OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
-                        .requestMatchers(HttpMethod.POST, ADMIN).hasRole("ADMIN")
-                        .anyRequest().permitAll()
+                        .requestMatchers(USER).hasRole("USER")
+                        .requestMatchers(OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
+                        .requestMatchers(ADMIN).hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
