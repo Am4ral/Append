@@ -1,5 +1,6 @@
 package com.append.backend.config;
 
+import com.append.backend.entities.User;
 import com.append.backend.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -25,7 +26,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        var token =  this.recoverToken(request);
+        var token =  recoverToken(request);
         if(token != null){
             var email = tokenService.validateToken(token);
             UserDetails user = repository.findByEmail(email);
@@ -40,6 +41,6 @@ public class SecurityFilter extends OncePerRequestFilter {
     private String recoverToken(HttpServletRequest req){
         var authHeader = req.getHeader("Authorization");
         if(authHeader == null) return null;
-        return authHeader.replace("Bearer", "");
+        return authHeader.replace("Bearer ", "");
     }
 }
