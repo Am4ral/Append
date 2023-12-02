@@ -42,7 +42,8 @@ public class TokenConfig {
                     .getSubject();
         }
         catch (JWTVerificationException e){
-            return "";
+            //return "";
+            throw new RuntimeException("Error while validating token", e);
         }
     }
 
