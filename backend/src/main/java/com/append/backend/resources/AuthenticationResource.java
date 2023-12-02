@@ -4,6 +4,7 @@ import com.append.backend.config.TokenConfig;
 import com.append.backend.dto.AuthenticationDTO;
 import com.append.backend.dto.LoginResponseDTO;
 import com.append.backend.dto.RegistrationDTO;
+import com.append.backend.dto.UserDTO;
 import com.append.backend.entities.User;
 import com.append.backend.repositories.UserRepository;
 import jakarta.validation.Valid;
@@ -42,7 +43,7 @@ public class AuthenticationResource {
 
         var token = tokenConfig.generateToken((User)auth.getPrincipal());
 
-        return ResponseEntity.ok(new LoginResponseDTO(token, ((User) auth.getPrincipal()).getId()));
+        return ResponseEntity.ok(new LoginResponseDTO(token, ((User) auth.getPrincipal())));
     }
 
     @PostMapping("/register")

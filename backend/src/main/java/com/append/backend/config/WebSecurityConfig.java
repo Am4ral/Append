@@ -4,6 +4,7 @@ import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,7 +30,7 @@ public class WebSecurityConfig {
 
     private static final String[] OWNER_OR_ADMIN = {"/houses/**"};
 
-    private static final String[] ADMIN = {"/users/**"};
+    private static final String[] ADMIN = {"/users/"};
 
     @Autowired
     private SecurityFilter securityFilter;
@@ -47,10 +48,12 @@ public class WebSecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC).permitAll()
-                        .requestMatchers(USER).hasRole("USER")
-                        .requestMatchers(OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
-                        .requestMatchers(ADMIN).hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        //.requestMatchers(HttpMethod.GET, "/user/{id}").permitAll()
+                        //.requestMatchers(HttpMethod.GET, "/houses/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, USER).hasRole("USER")
+                        .requestMatchers(HttpMethod.POST, OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
+                        .requestMatchers(HttpMethod.POST, ADMIN).hasRole("ADMIN")
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
