@@ -9,6 +9,10 @@
     grid-row-start: 2;
     gap: 4vw;
     align-self: self-start;
+    position: absolute;
+    top: 9vw;
+    left: 0;
+    right: 0;
 }
     
 .home-dashboard-tittle{
@@ -17,6 +21,7 @@
     font-weight: 400;
     font-size: 5vw;
     color: var(--color-orange);
+    margin-bottom: 3vw;
 }
 
 @media screen and (orientation: portrait) {

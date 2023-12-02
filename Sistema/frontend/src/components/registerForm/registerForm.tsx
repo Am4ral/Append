@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import './registerForm.css'
-import useAuth from "../../hooks/useAuth";
 import {useEffect, useRef, useState} from "react";
-import api from "../../services/API";
+import {api} from "../../services/API";
+import {AuthProvider, useAuth} from "../../context/AuthProvider";
+
 
 function ResgisterForm() {
     // @ts-ignore
-    const { setAuth } = useAuth();
+    const { setAuthToken } = useAuth();
     const userRef = useRef();
     const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ function ResgisterForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post(
+            const response = await api(null).post(
                 "/auth/register",
                 {
                     name: name,
@@ -94,6 +95,20 @@ function ResgisterForm() {
                     className='register-form-input'
                     required
                 />
+              </div>
+              
+              <div className='register-form-role-select'>
+                <label htmlFor="role" className='register-form-label'>Eu Desejo:</label>
+                <select
+                    name="role"
+                    title='role'
+                    className='register-form-input-select'
+                    required
+                >
+                    <option selected disabled>Selecione</option>
+                    <option>Alugar imóveis</option>
+                    <option>Ofertar imóveis</option>
+                </select>
               </div>
 
               <button type='submit' className='register-form-button' onClick={()=> navigate('/')}>Enviar</button>

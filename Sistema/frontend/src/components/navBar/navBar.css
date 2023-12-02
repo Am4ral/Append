@@ -23,6 +23,7 @@
 
 .header-menu-icon {
     width: 4vw;
+    cursor: pointer;
 }
 
 .logo-link{

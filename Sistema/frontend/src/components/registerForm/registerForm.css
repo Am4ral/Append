@@ -1,7 +1,6 @@
 .register-form{
     display: grid;
-    justify-items: center;
-    gap: 0.5vw;
+    gap: 1vw;
 }
 
 .register-form-tittle{
@@ -38,12 +37,31 @@
     border-radius: 1vw;
     background-color: var(--color-red);
     padding: 1.5vw 3.5vw;
-    margin-top: 2.5vw;
+    margin-top: 1.5vw;
     color: var(--color-white);
     font-family: var(--font-montserrat);
     font-weight: 700;
     font-size: 1.25vw;
     cursor: pointer;
+    justify-self: center;
+}
+
+.register-form-role-select{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-form-input-select{
+    width: 15vw;
+    margin-top: 0.55vw;
+    background-color: var(--color-white);
+    border: 0;
+    border-radius: 1vw;
+    font-size: 1.25vw;
+    padding: 0.75vw 0.5vw;
+    text-decoration: none;
 }
 
 

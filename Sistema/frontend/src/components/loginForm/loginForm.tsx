@@ -1,40 +1,38 @@
 import FormButton from '../formButton/formButton';
 import './loginForm.css'
 import {useNavigate} from 'react-router-dom';
-import api from "../../services/API";
+import {api} from "../../services/API";
 import {useState, useRef, useEffect, useContext} from "react";
-import AuthContext from "../../context/AuthProvider";
-import useAuth from "../../hooks/useAuth";
+import {AuthProvider, useAuth} from "../../context/AuthProvider";
+import {login} from "../../services/login"
+import { error } from 'console';
 
 const LoginForm = () => {
     // @ts-ignore
-    const { setAuth } = useAuth();
     const userRef = useRef();
-    const navigate = useNavigate();
+    const { setAuthToken } = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     // @ts-ignore
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await api.post(
-                "/auth/login",
-                {
-                    email: email,
-                    password: password
-                });
-            console.log(JSON.stringify(response.data));
-            // @ts-ignore
-            setAuth(response.data)
-            setEmail('');
-            setPassword('');
-            navigate('/home');
-        } catch (err) {
-            console.log("EITA BIXO, E AGORA ?????", err)
-        }
+            login({
+                email: email,
+                password: password
+            }).
+            then((response) => {
+                //console.log(response);
+                const token = response.data.token;
+                const user = response.data.user;
+                setAuthToken(token, user);
+                console.log(token, user);
+                window.open("/home", "_self");
+              })
+        .catch ((error) => {
+            alert('Email ou senha inválidos.');
+        });
     }
 
     return (
@@ -68,13 +66,10 @@ const LoginForm = () => {
                 />
             </div>
 
-            <FormButton  text='Enviar' type='submit' func={()=>{navigate('/home')}}/>
+            <FormButton  text='Enviar' type='submit'/>
         </form>
 
     );
 }
 
 export default LoginForm;
-
-
-/*<Link to={'/register'} className='login-form-register login-form-register-link'>*/

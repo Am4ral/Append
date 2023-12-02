@@ -3,12 +3,12 @@ import '../styles/variables.css'
 import LoginRegister from './loginRegister';
 import Home from './home';
 
-const AppRoutes = () => {
+function AppRoutes () {
     return(
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<LoginRegister/>}/>
-                <Route path='/home' element={<Home rule='locator'/>}/>
+                <Route path='/home' element={<Home/>}/>
             </Routes>
         </BrowserRouter>
     )

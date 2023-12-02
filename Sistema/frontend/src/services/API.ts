@@ -1,8 +1,14 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
-const api = axios.create({
-    //baseURL: "https://cors-anywhere.herokuapp.com/http://localhost:8081/",
+export function api(token: string | null): AxiosInstance {
+    console.log(token)
+  const instance = axios.create({
     baseURL: "http://localhost:8080/",
-});
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return instance;
+}
 
-export default api;
+// admin owner user
