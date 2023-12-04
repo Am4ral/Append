@@ -49,6 +49,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC).permitAll()
                         .requestMatchers(USER).hasRole("USER")
+                        .requestMatchers(HttpMethod.GET ,"/houses/**").authenticated()
                         .requestMatchers(OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers(ADMIN).hasRole("ADMIN")
                         .anyRequest().authenticated()

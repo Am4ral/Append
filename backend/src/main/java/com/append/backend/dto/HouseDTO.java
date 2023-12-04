@@ -18,6 +18,8 @@ public class HouseDTO implements Serializable {
     private long id;
     private UserDTO owner;
     @NotBlank
+    private String title;
+    @NotBlank
     private String state;
     @NotBlank
     private String city;
@@ -36,8 +38,9 @@ public class HouseDTO implements Serializable {
 
     public HouseDTO() {}
 
-    public HouseDTO(UserDTO owner, String state, String city, String street, String district, long number, String info, double price, String imgURL) {
+    public HouseDTO(UserDTO owner, String title, String state, String city, String street, String district, long number, String info, double price, String imgURL) {
         this.owner = owner;
+        this.title = title;
         this.state = state;
         this.city = city;
         this.street = street;
@@ -51,6 +54,7 @@ public class HouseDTO implements Serializable {
     public HouseDTO(House entity){
         this.id = entity.getId();
         this.owner = new UserDTO(entity.getOwner());
+        this.title = entity.getTitle();
         this.state = entity.getState();
         this.city = entity.getCity();
         this.street = entity.getStreet();
@@ -71,6 +75,14 @@ public class HouseDTO implements Serializable {
 
     public void setOwner(UserDTO owner) {
         this.owner = owner;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getState() {
