@@ -20,6 +20,8 @@ public class House implements Serializable {
 
     @ManyToOne(fetch =  FetchType.LAZY)
     private User owner;
+    private String state;
+    private String city;
     private String street;
     private String district;
     private long number;
@@ -31,8 +33,10 @@ public class House implements Serializable {
     public House() {
     }
 
-    public House(User owner, String street, String district, long number, String info, double price, String imgURL) {
+    public House(User owner, String state, String city, String street, String district, long number, String info, double price, String imgURL) {
         this.owner = owner;
+        this.state = state;
+        this.city = city;
         this.street = street;
         this.district = district;
         this.number = number;
@@ -43,6 +47,22 @@ public class House implements Serializable {
 
     public long getId() {
         return id;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getStreet() {

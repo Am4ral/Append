@@ -5,6 +5,7 @@ import com.append.backend.dto.AuthenticationDTO;
 import com.append.backend.dto.LoginResponseDTO;
 import com.append.backend.dto.RegistrationDTO;
 import com.append.backend.dto.UserDTO;
+import com.append.backend.entities.Role;
 import com.append.backend.entities.User;
 import com.append.backend.repositories.UserRepository;
 import jakarta.validation.Valid;
@@ -19,6 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @RestController
 @RequestMapping("auth")
@@ -52,7 +56,7 @@ public class AuthenticationResource {
          return ResponseEntity.badRequest().build();
         }
         String encryptedPassword = passwordEncoder.encode(dto.password());
-        User user = new User(dto.name(), dto.email(), encryptedPassword, dto.role());
+        User user = new User(dto.name(), dto.email(), encryptedPassword, dto.roles());
 
         repository.save(user);
 

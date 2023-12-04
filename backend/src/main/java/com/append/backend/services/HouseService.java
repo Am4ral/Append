@@ -79,6 +79,8 @@ public class HouseService {
     private void copyDtoEntity(HouseDTO dto, House entity){
         User owner =  userRepository.getOne(dto.getOwner().getId());
         entity.setOwner(owner);
+        entity.setState(dto.getState());
+        entity.setCity(dto.getCity());
         entity.setStreet(dto.getStreet());
         entity.setDistrict(dto.getDistrict());
         entity.setNumber(dto.getNumber());
