@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
 
@@ -17,15 +19,15 @@ public class Reserve implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "id_owner")
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User owner;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "id_renter")
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User renter;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne
     @JoinColumn(name = "id_house")
     private House house;
 
