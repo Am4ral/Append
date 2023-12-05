@@ -79,9 +79,40 @@ public class ReserveService {
             throw new ResourceNotFoundException("Id " + id + "was not found!");
         }
         catch (DataIntegrityViolationException e){
-            throw new DataBaseException("Integrity violation!");
+            throw new DataBaseException("Integrity violation! During Delete.");
         }
     }
+
+
+//    public void deleteByUser(Long userId) {
+//        try{
+//            List<Reserve> list = reserveRepository.findAll();
+//            for (Reserve r: list) {
+//                if(r.getOwner().getId() == userId || r.getRenter().getId() == userId){
+//                    delete(r.getId());
+//                    System.out.println("Deletou a reserva: " + r.getId());
+//                }
+//            }
+//        }
+//        catch (DataIntegrityViolationException e){
+//            throw new DataBaseException("Integrity violation! During delete by user in Reserve.");
+//        }
+//    }
+//
+//    public void deleteByHouse(Long houseId) {
+//        try{
+//            List<Reserve> list = reserveRepository.findAll();
+//            for (Reserve r: list) {
+//                if(r.getHouse().getId() == houseId){
+//                    System.out.println("Deletou a reserva: " + r.getId());
+//                    delete(r.getId());
+//                }
+//            }
+//        }
+//        catch (DataIntegrityViolationException e){
+//            throw new DataBaseException("Integrity violation! During delete by house.");
+//        }
+//    }
 
     private void copyDtoEntity(ReserveDTO dto, Reserve entity){
         User renter =  userRepository.getReferenceById(dto.getRenter());

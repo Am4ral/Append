@@ -45,7 +45,10 @@ public class UserService implements UserDetailsService{
     private RoleRepository roleRepository;
 
     @Autowired
-    private HouseRepository houseRepository;
+    private ReserveService reserveService;
+
+    @Autowired
+    private HouseService houseService;
 
     @Transactional(readOnly = true)
     public List<UserDTO> findAll(){
@@ -83,16 +86,11 @@ public class UserService implements UserDetailsService{
         }
     }
 
-
+    @Transactional
     public void delete(Long id) {
         try{
-//            List<House> list = houseRepository.findAll();
-//            for (House h: list) {
-//                long houseOwnerId = h.getOwner().getId();
-//                if(houseOwnerId == id){
-//                    houseRepository.deleteById(houseOwnerId);
-//                }
-//            }
+//            reserveService.deleteByUser(id);
+//            houseService.deleteByUser(id);
             userRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){

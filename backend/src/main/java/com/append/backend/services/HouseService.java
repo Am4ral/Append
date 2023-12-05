@@ -18,6 +18,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,7 +30,7 @@ public class HouseService {
     private HouseRepository houseRepository;
 
     @Autowired
-    private ReserveRepository reserveRepository;
+    private ReserveService reserveService;
 
     @Autowired
     private UserRepository userRepository;
@@ -60,7 +61,7 @@ public class HouseService {
     @Transactional
     public HouseDTO update(HouseDTO dto, Long id){
         try {
-            House entity = houseRepository.getOne(id);
+            House entity = houseRepository.getReferenceById(id);
             copyDtoEntity(dto, entity);
             entity = houseRepository.save(entity);
             return new HouseDTO(entity);
@@ -70,27 +71,41 @@ public class HouseService {
         }
     }
 
+
     public void delete(Long id) {
         try{
-//            List<Reserve> list = reserveRepository.findAll();
-//            for (Reserve r: list) {
-//                long reserveId = r.getHouse().getId();
-//                if(reserveId == id){
-//                    reserveRepository.deleteById(reserveId);
-//                }
-//            }
+//            reserveService.deleteByHouse(id);
             houseRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
             throw new ResourceNotFoundException("Id " + id + " was not found!");
         }
         catch (DataIntegrityViolationException e){
-            throw new DataBaseException("Integrity violation!");
+            throw new DataBaseException("Integrity violation! During delete.");
         }
     }
 
+
+//    public void deleteByUser(Long userId) {
+//        try{
+//            List<House> list = houseRepository.findAll();
+//            for (House h: list) {
+//                System.out.println("Casa: " + h.getId());
+//                if(h.getOwner().getId() == userId){
+//                    System.out.println("Antes do delete");
+//                    delete(h.getId());
+//                    System.out.println("Deletou a casa");
+//                }
+//            }
+//        }
+//        catch (DataIntegrityViolationException e){
+//            throw new DataBaseException("Integrity violation! During delete by user in House.");
+//        }
+//    }
+
+
     private void copyDtoEntity(HouseDTO dto, House entity){
-        User owner =  userRepository.getOne(dto.getOwner().getId());
+        User owner =  userRepository.getReferenceById(dto.getOwner().getId());
         entity.setOwner(owner);
         entity.setTitle(dto.getTitle());
         entity.setState(dto.getState());

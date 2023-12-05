@@ -32,6 +32,7 @@ public class User implements UserDetails, Serializable {
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+
     public User(){}
 
     public User(Long id, String name, String email, String password) {

@@ -3,6 +3,8 @@ package com.append.backend.entities;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 
 import java.io.Serializable;
@@ -18,7 +20,8 @@ public class House implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch =  FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @ManyToOne(fetch =  FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User owner;
     private String title;
     private String state;
