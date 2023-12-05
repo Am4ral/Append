@@ -17,19 +17,24 @@ public class Reserve implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_owner")
     private User owner;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_renter")
     private User renter;
 
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "id_house")
+    private House house;
+
     public Reserve() {}
 
-    public Reserve(User owner, User renter) {
+    public Reserve(User owner, User renter, House house) {
         this.owner = owner;
         this.renter = renter;
+        this.house = house;
     }
 
     public long getId() {
@@ -50,5 +55,13 @@ public class Reserve implements Serializable {
 
     public void setRenter(User renter) {
         this.renter = renter;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 }

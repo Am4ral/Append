@@ -13,21 +13,22 @@ public class ReserveDTO implements Serializable {
     
     private static final long serialVersionUID = 1L;
     private long id;
-    private UserDTO owner;
-    private UserDTO renter;
+    private long renter;
+    private long house;
 
 
     public ReserveDTO() {}
 
-    public ReserveDTO(UserDTO owner, UserDTO renter) {
-        this.owner = owner;
+    public ReserveDTO(long renter, long house) {
         this.renter = renter;
+        this.house = house;
     }
+
 
     public ReserveDTO(Reserve entity){
         this.id = entity.getId();
-        this.owner = new UserDTO(entity.getOwner());
-        this.renter = new UserDTO(entity.getRenter());
+        this.renter = entity.getRenter().getId();
+        this.house = entity.getHouse().getId();
 
     }
 
@@ -35,15 +36,19 @@ public class ReserveDTO implements Serializable {
         return id;
     }
 
-    public UserDTO getOwner() {
-        return owner;
-    }
-
-    public UserDTO getRenter() {
+    public long getRenter() {
         return renter;
     }
 
-    public void setRenter(UserDTO renter) {
+    public long getHouse() {
+        return house;
+    }
+
+    public void setHouse(long house) {
+        this.house = house;
+    }
+
+    public void setRenter(long renter) {
         this.renter = renter;
     }
 

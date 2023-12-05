@@ -4,7 +4,10 @@ import com.append.backend.dto.RoleDTO;
 import com.append.backend.dto.UserDTO;
 import com.append.backend.dto.UserInsertDTO;
 import com.append.backend.dto.UserUpdateDTO;
+import com.append.backend.entities.House;
+import com.append.backend.entities.Reserve;
 import com.append.backend.entities.Role;
+import com.append.backend.repositories.HouseRepository;
 import com.append.backend.repositories.RoleRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.entities.User;
@@ -41,6 +44,9 @@ public class UserService implements UserDetailsService{
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private HouseRepository houseRepository;
+
     @Transactional(readOnly = true)
     public List<UserDTO> findAll(){
         List<User> list = userRepository.findAll();
@@ -67,7 +73,7 @@ public class UserService implements UserDetailsService{
     @Transactional
     public UserDTO update(UserUpdateDTO dto, Long id){
         try {
-            User entity = userRepository.getOne(id);
+            User entity = userRepository.getReferenceById(id);
             copyDtoEntity(dto, entity);
             entity = userRepository.save(entity);
             return new UserDTO(entity);
@@ -80,6 +86,13 @@ public class UserService implements UserDetailsService{
 
     public void delete(Long id) {
         try{
+//            List<House> list = houseRepository.findAll();
+//            for (House h: list) {
+//                long houseOwnerId = h.getOwner().getId();
+//                if(houseOwnerId == id){
+//                    houseRepository.deleteById(houseOwnerId);
+//                }
+//            }
             userRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
@@ -96,7 +109,7 @@ public class UserService implements UserDetailsService{
 
         entity.getRoles().clear();
         for(RoleDTO roleDTO : dto.getRoles()){
-            Role role = roleRepository.getOne(dto.getId());
+            Role role = roleRepository.getReferenceById(dto.getId());
             entity.getRoles().add(role);
 
         }

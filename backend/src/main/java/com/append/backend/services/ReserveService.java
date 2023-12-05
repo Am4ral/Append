@@ -2,9 +2,11 @@ package com.append.backend.services;
 
 import com.append.backend.dto.ReserveDTO;
 import com.append.backend.dto.ReserveDTO;
+import com.append.backend.entities.House;
 import com.append.backend.entities.Reserve;
 import com.append.backend.entities.Reserve;
 import com.append.backend.entities.User;
+import com.append.backend.repositories.HouseRepository;
 import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.UserRepository;
@@ -29,6 +31,9 @@ public class ReserveService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private HouseRepository houseRepository;
 
     @Transactional(readOnly = true)
     public List<ReserveDTO> findAll(){
@@ -71,7 +76,7 @@ public class ReserveService {
             reserveRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
-            throw new ResourceNotFoundException("Id " + id + "was not foun!");
+            throw new ResourceNotFoundException("Id " + id + "was not found!");
         }
         catch (DataIntegrityViolationException e){
             throw new DataBaseException("Integrity violation!");
@@ -79,10 +84,13 @@ public class ReserveService {
     }
 
     private void copyDtoEntity(ReserveDTO dto, Reserve entity){
-        User owner =  userRepository.getOne(dto.getOwner().getId());
-        entity.setOwner(owner);
-
-        User renter =  userRepository.getOne(dto.getRenter().getId());
+        User renter =  userRepository.getReferenceById(dto.getRenter());
         entity.setRenter(renter);
+
+        House house = houseRepository.getReferenceById(dto.getHouse());
+        entity.setHouse(house);
+
+        User owner =  house.getOwner();
+        entity.setOwner(owner);
     }
 }

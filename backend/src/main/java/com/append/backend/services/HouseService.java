@@ -1,10 +1,13 @@
 package com.append.backend.services;
 
 import com.append.backend.dto.HouseDTO;
+import com.append.backend.dto.ReserveDTO;
 import com.append.backend.dto.UserDTO;
 import com.append.backend.entities.House;
+import com.append.backend.entities.Reserve;
 import com.append.backend.entities.User;
 import com.append.backend.repositories.HouseRepository;
+import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.services.exceptions.DataBaseException;
 import com.append.backend.services.exceptions.ResourceNotFoundException;
@@ -24,6 +27,9 @@ public class HouseService {
 
     @Autowired
     private HouseRepository houseRepository;
+
+    @Autowired
+    private ReserveRepository reserveRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -66,6 +72,13 @@ public class HouseService {
 
     public void delete(Long id) {
         try{
+//            List<Reserve> list = reserveRepository.findAll();
+//            for (Reserve r: list) {
+//                long reserveId = r.getHouse().getId();
+//                if(reserveId == id){
+//                    reserveRepository.deleteById(reserveId);
+//                }
+//            }
             houseRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
