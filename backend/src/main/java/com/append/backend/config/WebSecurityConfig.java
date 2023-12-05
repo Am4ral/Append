@@ -42,13 +42,13 @@ public class WebSecurityConfig {
                         .configurationSource(req -> {
                             CorsConfiguration config = new CorsConfiguration();
                             config.applyPermitDefaultValues();
-                            config.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELTE", "PATCH", "OPTIONS"));
+                            config.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
                             return config;
                         }))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC).permitAll()
-                        .requestMatchers(USER).hasRole("USER")
+                        .requestMatchers(USER).hasAnyRole("USER", "OWNER", "ADMIN")
                         .requestMatchers(HttpMethod.GET ,"/houses/**").authenticated()
                         .requestMatchers(OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers(ADMIN).hasRole("ADMIN")

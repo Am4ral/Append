@@ -18,7 +18,7 @@ public class House implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch =  FetchType.LAZY)
+    @ManyToOne(fetch =  FetchType.LAZY, cascade = CascadeType.REMOVE)
     private User owner;
     private String title;
     private String state;
