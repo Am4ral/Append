@@ -4,7 +4,6 @@ import BackgroundImage from '../../assets/locatorBackground.svg'
 import { FC, useState } from 'react';
 import AddHouseForm from '../addHouseForm/addHouseForm';
 import { MapHouseOwner } from '../../services/mapHouseOwner';
-import { MapHouseReserves } from '../../services/mapHouseReserves';
 import { MapHouse } from '../../services/mapHouseUser';
 
 interface LocatorDashboardProps{
@@ -20,9 +19,9 @@ const LocatorDashboard: FC<LocatorDashboardProps> = ({reserves, admin}) => {
         setShowHouseRegister(!showHouseRegister)
     }
 
+    let houses;
 
-    const houses = MapHouse()
-
+    {reserves ? houses = MapHouseOwner() : houses = MapHouse()}
 
     return ( 
         <div>
