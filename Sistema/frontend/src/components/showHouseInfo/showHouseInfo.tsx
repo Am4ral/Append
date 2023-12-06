@@ -36,17 +36,18 @@ const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserve
     }
 
     function cancelReserve(){
-        api(token).get(
-            '/reserves/find', 
-            {
-                params:{
-                    renter: userID,
-                    house: houseID
-                }
+        api(token).post(
+            '/reserves/find', {
+                renter: userID,
+                house : houseID
             }
         )
         .then((response) => {
-            console.log(response)
+            console.log(`House ID: ${response.data.house}}`)
+            api(token).delete(`/reserves/${response.data.house}`);
+            console.log()
+            alert('Reserva excluída com sucesso');
+            window.open("/home", "_self")
         })
         .catch((error) => {
             console.log(houseID, userID)
