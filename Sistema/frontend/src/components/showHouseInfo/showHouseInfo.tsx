@@ -6,28 +6,51 @@ import { api } from '../../services/API';
 
 interface ShowHouseProps{
     reserves?: boolean;
-    owner?: boolean;
     onClose: () => void;
+    admin?: boolean;
+    onDelete?: ()=>void;
 }
 
-const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserves, owner}) => {
+const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserves, admin, onDelete}) => {
     const token = localStorage.getItem('token')
     const user = JSON.parse(localStorage.getItem('user') || "")
+
+    const userID = user.id
+    const houseID = house.id
 
     function reserve(){
         api(token).post(
             '/reserves',
             {
-                renter: user.id,
-                house: house.id,
+                renter: userID,
+                house: houseID,
             }
         )
-        .then(()=>{
+        .then((response)=>{
             alert('Reserva efetuada com sucesso!')
             window.open("/reserves", "_self");
         }
         ).catch(()=>{
             alert('Reserva já realizada.')
+        })
+    }
+
+    function cancelReserve(){
+        api(token).get(
+            '/reserves/find', 
+            {
+                params:{
+                    renter: userID,
+                    house: houseID
+                }
+            }
+        )
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log(houseID, userID)
+            console.log(error)
         })
     }
     
@@ -44,7 +67,10 @@ const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserve
                             <p><span>Descrição:</span></p>
                             <p>{house.info}</p>
                         </div>
-                        {!reserves ? <FormButton text='Reservar' type='button' onTap={reserve}/> : <></>}
+                        {!reserves ? !admin? <FormButton text='Reservar' type='button' onTap={reserve}/> 
+                        : <FormButton text='Excluir imóvel' type='button' onTap={onDelete}/>
+                        : <FormButton text='Cancelar Reserva' type='button' onTap={cancelReserve}/>
+                        }
                     </div>
                     <div className='show-house-info-content-right'>
                         <img src={house.imgURL} alt='name'></img>

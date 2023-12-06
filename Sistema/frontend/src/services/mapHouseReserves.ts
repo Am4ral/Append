@@ -23,44 +23,37 @@ type House = {
     city: string;
     state: string;
     id: number;
-};
+    };
 
 export function MapHouseReserves() {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user") || "");
-    const userID = user.id;
 
     const [reserves, setReserves] = useState<Reserve[]>([]);
     const [houses, setHouses] = useState<House[]>([]);
     const [userReserves, setUserReserves] = useState<House[]>([]);
 
     useEffect(() => {
-        const fetchReserves = async () => {
+        const fetchData = async () => {
             try {
-                const response = await api(token).get('/reserves');
-                setReserves(response.data);
-            } catch (error) {
-                console.error('Error fetching reserves:', error);
-            }
-        };
-        fetchReserves();
-    }, [token]);
+                const [reservesResponse, housesResponse] = await Promise.all([
+                    api(token).get('/reserves'),
+                    api(token).get('/houses'),
+                ]);
 
-    useEffect(() => {
-        const fetchHouses = async () => {
-            try {
-                const response = await api(token).get('/houses');
-                setHouses(response.data);
+                setReserves(reservesResponse.data);
+                setHouses(housesResponse.data);
             } catch (error) {
-                console.error('Error fetching houses:', error);
+                console.error('Error fetching data:', error);
             }
         };
-        fetchHouses();
+
+        fetchData();
     }, [token]);
 
     useEffect(() => {
        setUserReserves( houses.filter((house) => reserves.some((reserve) => reserve.house === house.id)))
     }, [reserves, houses]);
-    
+        
     return userReserves;
 }

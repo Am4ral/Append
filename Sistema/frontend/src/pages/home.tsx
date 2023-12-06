@@ -3,6 +3,7 @@ import '../styles/home.css'
 import RenterDashboard from "../components/renterDashboard/renterDashboard"
 import LocatorDashboard from "../components/locatorDashboard/locatorDashboard"
 import { FC } from "react"
+import { createPortal } from "react-dom"
 
 interface HomeProps{
     reserves?: boolean;
@@ -38,7 +39,7 @@ const Home: FC<HomeProps> = ({reserves}) => {
         case 'ROLE_ADMIN':
             PageToRender = 
                 <div>
-                    <LocatorDashboard/>
+                    <LocatorDashboard admin/>
                 </div>
             break;
     
@@ -51,7 +52,9 @@ const Home: FC<HomeProps> = ({reserves}) => {
 
     return(
         <section className="home">
-            <NavBar/>
+            {createPortal(
+                <NavBar/>, document.body
+            )}
             <div className="home-dashboard">
                 {PageToRender}
             </div>

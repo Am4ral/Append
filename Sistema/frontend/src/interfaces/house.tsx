@@ -15,7 +15,7 @@ export interface HouseProps{
             name: string;
         };
         info: string;
-    }
+            }
 }
 
 export interface OptionalHouseProps{

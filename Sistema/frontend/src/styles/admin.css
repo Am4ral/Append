@@ -1,0 +1,60 @@
+.admin-dashboard{
+    position: absolute;
+    top:6vw;
+    left: 0;
+}
+
+.admin-dashboard-forms{
+    display: grid;
+    width: 100vw;
+    height: 85vh;
+    grid-template-columns: max-content max-content;
+    column-gap: 20%;
+    grid-template-rows: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-dashboard-forms-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vw;
+    width: 25vw;
+    background-color: var(--color-red);
+    padding: 2vw;
+    border-radius: 1vw;
+    -webkit-box-shadow: 3px 9px 18px 6px rgba(0,0,0,0.25);
+    -moz-box-shadow: 3px 9px 18px 6px rgba(0,0,0,0.25);
+    box-shadow: 3px 9px 18px 6px rgba(0,0,0,0.25);
+}
+
+.admin-dashboard-forms-content h2{
+    font-family: var(--font-rowdies);
+    font-weight: 400;
+    color: var(--color-white);
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+.admin-dashboard-forms-content input{
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: var(--font-montserrat);
+    color: var(--color-black);
+    padding: 0.75vw 0.5vw;
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 1vw;
+}
+
+.admin-dashboard-forms-content button{
+    border: none;
+    background-color: var(--color-white);
+    width: max-content;
+    align-self: center;
+    font-size: 2vw;
+    padding: 1vw 2vw;
+    border-radius: 1vw;
+    cursor: pointer;
+}

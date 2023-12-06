@@ -13,10 +13,22 @@ import AddHouseForm from "../addHouseForm/addHouseForm";
 
 interface ListCardProps{
     reserves?: boolean;
-    owner?: boolean;
+    admin?: boolean;
 }
 
-const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, owner}) => {
+const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, admin}) => {
+    const token = localStorage.getItem('token')
+
+    async function deleteHouse(houseID: number) {
+        try {
+            await api(token).delete(`/houses/${houseID}`);
+            showConfirmForm();
+            window.open("/home", "_self");
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     const[showHouseInfo, setShowHouseInfo] = useState(false)
 
     function showInfo(){
@@ -39,7 +51,7 @@ const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, owner}) => {
        <div>
         {createPortal(
             showHouseInfo ? 
-            <ShowHouseInfo house={house} onClose={showInfo} reserves={reserves} owner={owner}/> 
+            <ShowHouseInfo house={house} onClose={showInfo} reserves={reserves} admin={admin} onDelete={showConfirmForm}/> 
             : <></>, 
             document.body
         )}
@@ -51,16 +63,16 @@ const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, owner}) => {
         )}
         {createPortal(
             showConfirm ? 
-           <DeleteHouseConfirm houseID={house.id} showConfirm={showConfirmForm}/> 
+           <DeleteHouseConfirm onDelete={() => deleteHouse(house.id)} showConfirm={showConfirmForm}/> 
            : <></>,
             document.body
         )}
-        <div 
-            className="list-card" 
-            onClick={reserves ? showInfo : ()=>{}} 
-            style={reserves ? {cursor: 'pointer'}: {}}
-        >
-            <div className="list-card-content">
+        <div className="list-card">
+            <div 
+                className="list-card-content"
+                onClick={reserves || admin? showInfo : ()=>{}} 
+                style={reserves || admin? {cursor: 'pointer'}: {}}
+            >
                 <img src={house.imgURL} alt={capitalizeWords(house.title)} className="list-card-image"/>
                 <div className="list-card-text">
                     <h2>{capitalizeWords(house.title)} - R${house.price},00</h2>
@@ -70,7 +82,7 @@ const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, owner}) => {
             {!reserves ? 
             <div>
                 <div className="list-card-icons">
-                    <img className="list-card-icons-content" src={editIcon} alt="edit icon" onClick={showEdit}/>
+                    {!admin ? <img className="list-card-icons-content" src={editIcon} alt="edit icon" onClick={showEdit}/> : <></>}
                     <img className="list-card-icons-content" src={deleteIcon} alt="delete icon" onClick={showConfirmForm}/>
                 </div>
             </div> : <></>

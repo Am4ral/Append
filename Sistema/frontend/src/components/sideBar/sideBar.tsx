@@ -49,7 +49,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
                 <div className='side-bar-menu-content-options'>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
-                    <Link className='side-bar-menu-content-options-link' to={'/home'}>Administrador</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/admin'}>Administrador</Link>
                 </div>
             break;
     
