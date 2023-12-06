@@ -49,6 +49,17 @@ public class ReserveService {
         Reserve entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity Not Found"));
         return new ReserveDTO(entity);
     }
+
+    @Transactional(readOnly = true)
+    public ReserveDTO findByRenterHouse(Long renterId, Long houseId){
+        List<ReserveDTO> list = findAll();
+        for (ReserveDTO r: list) {
+            if(r.getRenter() == renterId && r.getHouse() == houseId){
+                return r;
+            }
+        }
+        return null;
+    }
     @Transactional
     public ReserveDTO insert(ReserveDTO dto) {
         Reserve entity = new Reserve();

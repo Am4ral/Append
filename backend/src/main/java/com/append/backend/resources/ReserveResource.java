@@ -1,6 +1,7 @@
 package com.append.backend.resources;
 
 import com.append.backend.dto.ReserveDTO;
+import com.append.backend.dto.ReserveGetDTO;
 import com.append.backend.services.ReserveService;
 import com.append.backend.services.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,12 @@ public class ReserveResource {
     @GetMapping(value = "/{id}")
     public ResponseEntity<ReserveDTO> findById(@PathVariable Long id){
         ReserveDTO dto = service.findById(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @GetMapping(value = "/find")
+    public ResponseEntity<ReserveDTO> findByRenterHouse(@RequestBody ReserveDTO dto){
+         dto = service.findByRenterHouse(dto.getRenter(), dto.getHouse());
         return ResponseEntity.ok().body(dto);
     }
 
