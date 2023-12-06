@@ -1,54 +1,62 @@
 import { FC } from 'react';
 import './showHouseInfo.css'
 import FormButton from '../formButton/formButton';
+import { HouseProps } from '../../interfaces/house';
+import { api } from '../../services/API';
 
 interface ShowHouseProps{
-    house : {
-        tittle: string;
-        price: number;
-        address: {
-            street: string;
-            number: number;
-            neighborhood: string;
-            city: string;
-            state: string;
-        };
-        picture: string;
-    };
-    edit: boolean;
-    onTap: () => void;
+    reserves?: boolean;
+    owner?: boolean;
+    onClose: () => void;
 }
 
-const ShowHouseInfo: FC<ShowHouseProps> = ({house, edit, onTap}) => {
+const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserves, owner}) => {
+    const token = localStorage.getItem('token')
+    const user = JSON.parse(localStorage.getItem('user') || "")
+
+    function reserve(){
+        api(token).post(
+            '/reserves',
+            {
+                renter: user.id,
+                house: house.id,
+            }
+        )
+        .then(()=>{
+            alert('Reserva efetuada com sucesso!')
+            window.open("/reserves", "_self");
+        }
+        ).catch(()=>{
+            alert('Reserva já realizada.')
+        })
+    }
     
     return(
         <section className='show-house-info' >
-            <div className='show-house-info-background' onClick={onTap}>
+            <div className='show-house-info-background' onClick={onClose}>
             </div>
-            <div className='show-house-info-form'>
-                <button className='show-house-info-form-close-button' onClick={onTap}>X</button>
-                <div>
-                    {edit === false ? 
-                    <div className='show-house-info-form-text'>
-                        <h1>{house.tittle} - R${house.price},00</h1>
-                        <div className='show-house-info-form-text-address'>
-                            <p><span>Endereço:</span></p>
-                            <p>{house.address.street}, {house.address.number}</p>
-                            <p>{house.address.neighborhood} - {house.address.city} / {house.address.state}</p>
+            <div>
+                <button className='show-house-info-content-close-button' onClick={onClose}>X</button>
+                <div className='show-house-info-content'>
+                    <div className='show-house-info-content-left'>
+                        <h1>{house.title} - R${house.price}</h1>
+                        <div className='show-house-info-content-left-description'>
+                            <p><span>Descrição:</span></p>
+                            <p>{house.info}</p>
                         </div>
-                        <FormButton text='Entrar em Contato' type='button'/>
+                        {!reserves ? <FormButton text='Reservar' type='button' onTap={reserve}/> : <></>}
                     </div>
-                    :
-                    <form className='edit-house-info-form'>
-                        <div className='edit-house-info-form-content'>
-                            <label htmlFor="tittle">Título:</label>
-                            <input name='tittle' title='tittle' value={house.tittle} defaultValue={house.tittle} readOnly = {false}  />
+                    <div className='show-house-info-content-right'>
+                        <img src={house.imgURL} alt='name'></img>
+                        <div className='show-house-info-content-right-address'>
+                            <p><span>Endereço:</span></p>
+                            <div>
+                                <p>{house.street}, {house.number}</p>
+                                <p>{house.district} - {house.city} / {house.state}</p>
+                            </div>
                         </div>
-                    </form>
-                    }
-                    
+                    </div>
                 </div>
-                <img src={house.picture} alt='name'></img>
             </div>
         </section>
 

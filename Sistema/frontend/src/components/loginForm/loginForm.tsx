@@ -21,16 +21,16 @@ const LoginForm = () => {
             login({
                 email: email,
                 password: password
-            }).
-            then((response) => {
+            })
+            .then((response) => {
                 //console.log(response);
                 const token = response.data.token;
                 const user = response.data.user;
                 setAuthToken(token, user);
                 console.log(token, user);
                 window.open("/home", "_self");
-              })
-        .catch ((error) => {
+            })
+            .catch ((error) => {
             alert('Email ou senha inválidos.');
         });
     }

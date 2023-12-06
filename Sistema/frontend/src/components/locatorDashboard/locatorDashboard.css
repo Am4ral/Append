@@ -24,8 +24,18 @@
     z-index: 1;
     
 }
+
 .locator-dashboard-list-item{
     width: max-content;
+}
+
+.locator-dashboard-reserves-tittle{
+    font-family: var(--font-rowdies);
+    font-weight: 400;
+    font-size:  4.5vw;
+    margin: 1vw 0 2.5vw 0;
+    color: var(--color-orange);
+    text-align: center;
 }
 
 .locator-dashboard-add-house-button{
@@ -39,6 +49,12 @@
     padding: 1vw 10vw;
     margin-bottom: 4.5vw;
     border-radius: 1vw;
+}
+
+.locator-dashboard-not-found{
+    font-family: var(--font-montserrat);
+    font-style: italic;
+    font-size: 1.75vw;
 }
 
 @media screen and (orientation: portrait){

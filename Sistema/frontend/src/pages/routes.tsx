@@ -9,6 +9,7 @@ function AppRoutes () {
             <Routes>
                 <Route path='/' element={<LoginRegister/>}/>
                 <Route path='/home' element={<Home/>}/>
+                <Route path='/reserves' element={<Home reserves/>}/>
             </Routes>
         </BrowserRouter>
     )

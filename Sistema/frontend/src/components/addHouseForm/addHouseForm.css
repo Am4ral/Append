@@ -10,9 +10,9 @@
 
 .add-house-form-content{
     width: 75vw;
-    height: 35vw;
+    height: max-content;
     background-color: var(--color-white);
-    padding: 2.75vw 2.5vw 2vw 2.5vw;
+    padding: 1.75vw 2.5vw;
     border-radius: 2vw;
 
     position: fixed;
@@ -22,19 +22,22 @@
     left: 0;
     right: 0;
     z-index: 10;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    row-gap: 1.5vw;
 }
 
 .add-house-form-content h1{
     text-align: center;
     font-family: var(--font-rowdies);
     font-weight: 400;
-    font-size: 1.75vw;
+    font-size: 2vw;
 }
 
 .add-house-form-close-button{
     position: fixed;
     left: 85.5vw;
-    top: 6vw;
+    top: 2vw;
     z-index: 11;
     border: none;
     background-color: transparent;
@@ -47,8 +50,9 @@
 
 .add-house-form-fields{
     display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 2vw 0;
+    grid-template-columns: auto auto;
+    column-gap: 7.5vw;
+    justify-self: center;
 }
 
 .add-house-form-fields-text{
@@ -60,13 +64,13 @@
 }
 
 .add-house-form-button{
-    margin-top: 0.75vw;
+    justify-self: center;
 }
 
 .add-house-form-fields-text-input{
     display: flex;
     flex-direction: column;
-    gap: 0.25vw;
+    gap: 0.5vw;
 }
 
 .add-house-form-fields-text-input label{
@@ -75,40 +79,64 @@
     font-size: 1.25vw;
 }
 
-.add-house-form-fields-text-input input{
+.add-house-form-fields-text-input input, select, textarea{
     border: none;
     background-color: var(--color-lightGray);
     width: max-content;
-    padding: 1vw;
-    width: 25vw;
+    padding: 0.75vw 1vw;
+    width: 23vw;
     font-size: 1.25vw;
     border-radius: 1vw;
 }
 
+.add-house-form-fields-text-input-number-district{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vw;
+}
+
+.add-house-form-fields-text-input-city-state{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1vw;
+}
+
+.input-number input{
+    width: 4vw;
+}
+
+.input-district input{
+    width: 16vw;
+}
+
+.input-city input{
+    width: 13vw;
+}
+
+.input-state select{
+    width: 9vw;
+}
+
+.input-info textarea{
+    height: 14.5vw;
+    max-height: 15vw;
+    max-width: 25vw;
+    resize: none;
+}
+
 .add-house-form-fields-image{
     background-color: var(--color-lightGray);
-    width: 22vw;
-    height: 80%;
-    border-radius: 2vw;
+    width: 25vw;
+    height: 18vw;
+    border-radius: 1vw;
     justify-self: end;
-    margin: 0 2vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-}
-
-.add-house-form-fields-image-upload{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    gap: 8vw;
-    margin-bottom: 2vw;
-    height: max-content;
-}
-
-.add-house-form-fields-image-upload img{
-    width: 5vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
 }
 
 .add-house-form-fields-image-upload p{

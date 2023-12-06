@@ -9,7 +9,7 @@
     z-index: 9;
 }
 
-.show-house-info-form{
+.show-house-info-content{
     width: 75vw;
     height: 35vw;
     background-color: var(--color-white);
@@ -17,55 +17,74 @@
     border-radius: 2vw;
 
     position: fixed;
+    margin: auto;
     top: 0;
     bottom: 0;
-    margin: auto;
     left: 0;
     right: 0;
     z-index: 10;
     
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 40% ;
+    column-gap: 10%;
+    grid-template-rows: 35vw;
 }
 
-.show-house-info-form-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 2vw 0 0 2vw;
-    height: 90%;
+.show-house-info-content-left{
+    display: grid;
+    grid-template-rows: max-content 40% max-content;
+    row-gap: 15%;
 }
 
-.show-house-info-form-text h1{
+.show-house-info-content-left button{
+    justify-self: center;
+}
+
+.show-house-info-content-left h1{
     font-family: var(--font-rowdies);
     font-size: 2.5vw;
 }
 
-.show-house-info-form-text-address{
+.show-house-info-content-right-address, .show-house-info-content-left-description{
     display: flex;
     flex-direction: column;
     gap: 1vw;
 }
 
-.show-house-info-form-text-address p{
+.show-house-info-content-right{
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-self: center;
+}
+
+.show-house-info-content-left p, .show-house-info-content-right p{
     font-size: 1.5vw;
     font-family: var(--font-montserrat);
 }
 
-.show-house-info-form-text-address span{
+.show-house-info-content-left span, .show-house-info-content-right-address span{
     font-weight: 700;
     font-size: 1.75vw;
 }
 
-.show-house-info-form img{
-    width: 30vw;
-    height: 30vw;
-    object-fit: cover;
-    border-radius: 2vw;
-    align-self: center;
+.show-house-info-content-left-description::-webkit-scrollbar {
+    display: none;
 }
 
-.show-house-info-form-close-button{
+.show-house-info-content-left-description{
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+.show-house-info-content img{
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    border-radius: 2vw;
+}
+
+.show-house-info-content-close-button{
     position: fixed;
     left: 85.5vw;
     top: 6vw;

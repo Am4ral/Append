@@ -1,11 +1,14 @@
-import NavNar from "../components/navBar/navBar"
+import NavBar from "../components/navBar/navBar"
 import '../styles/home.css'
 import RenterDashboard from "../components/renterDashboard/renterDashboard"
 import LocatorDashboard from "../components/locatorDashboard/locatorDashboard"
-import { api } from "../services/API"
+import { FC } from "react"
 
-const Home = () => {
-    const token = localStorage.getItem("token");
+interface HomeProps{
+    reserves?: boolean;
+}
+
+const Home: FC<HomeProps> = ({reserves}) => {
     const storedUser = localStorage.getItem("user");
 
     if(storedUser !== null){
@@ -44,9 +47,11 @@ const Home = () => {
             break;
     }
 
+    if(reserves){PageToRender = <LocatorDashboard reserves/>}
+
     return(
         <section className="home">
-            <NavNar/>
+            <NavBar/>
             <div className="home-dashboard">
                 {PageToRender}
             </div>
