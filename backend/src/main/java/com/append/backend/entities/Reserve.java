@@ -31,12 +31,15 @@ public class Reserve implements Serializable {
     @JoinColumn(name = "id_house")
     private House house;
 
+    private double propouseValue;
+
     public Reserve() {}
 
-    public Reserve(User owner, User renter, House house) {
+    public Reserve(User owner, User renter, House house, double propouseValue) {
         this.owner = owner;
         this.renter = renter;
         this.house = house;
+        this.propouseValue = propouseValue;
     }
 
     public long getId() {
@@ -65,5 +68,13 @@ public class Reserve implements Serializable {
 
     public void setHouse(House house) {
         this.house = house;
+    }
+
+    public double getPropouseValue() {
+        return propouseValue;
+    }
+
+    public void setPropouseValue(double propouseValue) {
+        this.propouseValue = propouseValue;
     }
 }

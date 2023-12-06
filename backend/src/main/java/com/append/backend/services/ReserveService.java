@@ -137,5 +137,7 @@ public class ReserveService {
 
         User owner =  house.getOwner();
         entity.setOwner(owner);
+
+        entity.setPropouseValue(dto.getPropouseValue());
     }
 }

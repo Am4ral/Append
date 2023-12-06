@@ -15,20 +15,22 @@ public class ReserveDTO implements Serializable {
     private long id;
     private long renter;
     private long house;
+    private double propouseValue;
 
 
     public ReserveDTO() {}
 
-    public ReserveDTO(long renter, long house) {
+    public ReserveDTO(long renter, long house, double propouseValue) {
         this.renter = renter;
         this.house = house;
+        this.propouseValue = propouseValue;
     }
-
 
     public ReserveDTO(Reserve entity){
         this.id = entity.getId();
         this.renter = entity.getRenter().getId();
         this.house = entity.getHouse().getId();
+        this.propouseValue =  entity.getPropouseValue();
 
     }
 
@@ -52,6 +54,11 @@ public class ReserveDTO implements Serializable {
         this.renter = renter;
     }
 
+    public double getPropouseValue() {
+        return propouseValue;
+    }
 
-
+    public void setPropouseValue(double propouseValue) {
+        this.propouseValue = propouseValue;
+    }
 }
