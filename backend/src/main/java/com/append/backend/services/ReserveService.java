@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.lang.Long.parseLong;
+
 @Service
 public class ReserveService {
 
@@ -52,6 +54,7 @@ public class ReserveService {
 
     @Transactional(readOnly = true)
     public ReserveDTO findByRenterHouse(Long renterId, Long houseId){
+        System.out.println("Chegou no service");
         List<ReserveDTO> list = findAll();
         for (ReserveDTO r: list) {
             if(r.getRenter() == renterId && r.getHouse() == houseId){
