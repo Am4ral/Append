@@ -65,7 +65,7 @@ public class WebSecurityConfig {
                         headersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(mvcMatcherBuilder.pattern("/")).permitAll()
+                        //.requestMatchers(mvcMatcherBuilder.pattern("/")).permitAll()
                         .requestMatchers(PUBLIC).permitAll()
                         .requestMatchers(USER).hasAnyRole("USER", "OWNER", "ADMIN")
                         .requestMatchers(HttpMethod.GET ,"/houses/**").authenticated()

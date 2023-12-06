@@ -13,6 +13,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+import static java.lang.Long.parseLong;
+
 @RestController
 @RequestMapping(value = "/reserves")
 
@@ -33,7 +35,7 @@ public class ReserveResource {
         return ResponseEntity.ok().body(dto);
     }
 
-    @GetMapping(value = "/find")
+    @PostMapping(value = "/find")
     public ResponseEntity<ReserveDTO> findByRenterHouse(@RequestBody ReserveDTO dto){
          dto = service.findByRenterHouse(dto.getRenter(), dto.getHouse());
         return ResponseEntity.ok().body(dto);
