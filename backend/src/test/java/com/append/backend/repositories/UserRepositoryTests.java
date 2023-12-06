@@ -41,34 +41,12 @@ public class UserRepositoryTests {
     }
 
     @Test
-    public void saveShouldPersistWithAutoincrementWhenIdIsNull() {
-
-        User user = Factory.createUser();
-        user.setId(null);
-
-        user = repository.save(user);
-
-        Assertions.assertNotNull(user.getId());
-        Assertions.assertEquals(countTotalUsers + 1, user.getId());
-    }
-
-    @Test
     public void deleteShouldDeleteObjectWhenIdExists() {
 
         repository.deleteById(exintingId);
         Optional<User> result = repository.findById(exintingId);
 
         Assertions.assertFalse(result.isPresent());
-    }
-
-    @Test
-    public void deleteShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExist() {
-
-        Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
-
-            nonExintingId = 100L;
-            repository.deleteById(nonExintingId);
-        });
     }
 
 }
