@@ -21,7 +21,8 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
     let MenuOptions: React.ReactNode;
     
     function logout () {
-        navigate("/")
+        localStorage.clear();
+        window.open("/", "_self");
     }
     
     switch (userRole) {
@@ -29,6 +30,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
             MenuOptions = 
                 <div className='side-bar-menu-content-options'>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/reserves'}>Reservas</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
                 </div>
             break;
@@ -37,6 +39,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
                 MenuOptions =
                 <div className='side-bar-menu-content-options'>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/reserves'}>Reservas</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
                 </div>
             break;
@@ -51,7 +54,6 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
             break;
     
         default:
-            MenuOptions = <></>;
             break;
     }
 

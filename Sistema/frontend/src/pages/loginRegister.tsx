@@ -22,7 +22,7 @@ function LoginRegister() {
                 </section>
 
                 <section className='form-component'>
-                    {useLoginForm ? <LoginForm/> : <RegisterForm/>}
+                    {useLoginForm ? <LoginForm/> : <RegisterForm onClose={formChange}/>}
 
                     <p className='form-component-text'>
                         {useLoginForm ? "Não possui cadastro?" : "Já possui cadastro?"}

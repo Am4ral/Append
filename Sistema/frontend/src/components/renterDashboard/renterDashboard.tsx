@@ -1,17 +1,18 @@
+import { MapHouse } from "../../services/mapHouseUser";
 import SquareCard from "../squareCard/squareCard";
-import Casas from '../../database/casas.json'
 import './renterDashboard.css'
 
+
 const RenterDashboard = () => {
+    const Houses = MapHouse()
+
     return ( 
         <ul className="renter-dashboard-list">
-                {Casas.map((item, index) => (
-                    <li>
-                        <SquareCard picture={item.picture} tittle={item.tittle} price={item.price} address={item.address} />
+                {Houses.map((house, index)=>(
+                    <li key={house.id} className='locator-dashboard-list-item'>
+                        <SquareCard house={house}/>
                     </li>
-                )
-                
-                )}
+                   ))}
             </ul>
      );
 }
