@@ -2,9 +2,11 @@ package com.append.backend.services;
 
 import com.append.backend.dto.ReserveDTO;
 import com.append.backend.dto.ReserveDTO;
+import com.append.backend.entities.House;
 import com.append.backend.entities.Reserve;
 import com.append.backend.entities.Reserve;
 import com.append.backend.entities.User;
+import com.append.backend.repositories.HouseRepository;
 import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.ReserveRepository;
 import com.append.backend.repositories.UserRepository;
@@ -29,6 +31,9 @@ public class ReserveService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private HouseRepository houseRepository;
 
     @Transactional(readOnly = true)
     public List<ReserveDTO> findAll(){
@@ -71,18 +76,52 @@ public class ReserveService {
             reserveRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
-            throw new ResourceNotFoundException("Id " + id + "was not foun!");
+            throw new ResourceNotFoundException("Id " + id + "was not found!");
         }
         catch (DataIntegrityViolationException e){
-            throw new DataBaseException("Integrity violation!");
+            throw new DataBaseException("Integrity violation! During Delete.");
         }
     }
 
-    private void copyDtoEntity(ReserveDTO dto, Reserve entity){
-        User owner =  userRepository.getOne(dto.getOwner().getId());
-        entity.setOwner(owner);
 
-        User renter =  userRepository.getOne(dto.getRenter().getId());
+//    public void deleteByUser(Long userId) {
+//        try{
+//            List<Reserve> list = reserveRepository.findAll();
+//            for (Reserve r: list) {
+//                if(r.getOwner().getId() == userId || r.getRenter().getId() == userId){
+//                    delete(r.getId());
+//                    System.out.println("Deletou a reserva: " + r.getId());
+//                }
+//            }
+//        }
+//        catch (DataIntegrityViolationException e){
+//            throw new DataBaseException("Integrity violation! During delete by user in Reserve.");
+//        }
+//    }
+//
+//    public void deleteByHouse(Long houseId) {
+//        try{
+//            List<Reserve> list = reserveRepository.findAll();
+//            for (Reserve r: list) {
+//                if(r.getHouse().getId() == houseId){
+//                    System.out.println("Deletou a reserva: " + r.getId());
+//                    delete(r.getId());
+//                }
+//            }
+//        }
+//        catch (DataIntegrityViolationException e){
+//            throw new DataBaseException("Integrity violation! During delete by house.");
+//        }
+//    }
+
+    private void copyDtoEntity(ReserveDTO dto, Reserve entity){
+        User renter =  userRepository.getReferenceById(dto.getRenter());
         entity.setRenter(renter);
+
+        House house = houseRepository.getReferenceById(dto.getHouse());
+        entity.setHouse(house);
+
+        User owner =  house.getOwner();
+        entity.setOwner(owner);
     }
 }

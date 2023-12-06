@@ -4,7 +4,10 @@ import com.append.backend.dto.RoleDTO;
 import com.append.backend.dto.UserDTO;
 import com.append.backend.dto.UserInsertDTO;
 import com.append.backend.dto.UserUpdateDTO;
+import com.append.backend.entities.House;
+import com.append.backend.entities.Reserve;
 import com.append.backend.entities.Role;
+import com.append.backend.repositories.HouseRepository;
 import com.append.backend.repositories.RoleRepository;
 import com.append.backend.repositories.UserRepository;
 import com.append.backend.entities.User;
@@ -41,6 +44,12 @@ public class UserService implements UserDetailsService{
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private ReserveService reserveService;
+
+    @Autowired
+    private HouseService houseService;
+
     @Transactional(readOnly = true)
     public List<UserDTO> findAll(){
         List<User> list = userRepository.findAll();
@@ -67,7 +76,7 @@ public class UserService implements UserDetailsService{
     @Transactional
     public UserDTO update(UserUpdateDTO dto, Long id){
         try {
-            User entity = userRepository.getOne(id);
+            User entity = userRepository.getReferenceById(id);
             copyDtoEntity(dto, entity);
             entity = userRepository.save(entity);
             return new UserDTO(entity);
@@ -77,9 +86,11 @@ public class UserService implements UserDetailsService{
         }
     }
 
-
+    @Transactional
     public void delete(Long id) {
         try{
+//            reserveService.deleteByUser(id);
+//            houseService.deleteByUser(id);
             userRepository.deleteById(id);
         }
         catch (EmptyResultDataAccessException e){
@@ -96,7 +107,7 @@ public class UserService implements UserDetailsService{
 
         entity.getRoles().clear();
         for(RoleDTO roleDTO : dto.getRoles()){
-            Role role = roleRepository.getOne(dto.getId());
+            Role role = roleRepository.getReferenceById(dto.getId());
             entity.getRoles().add(role);
 
         }
