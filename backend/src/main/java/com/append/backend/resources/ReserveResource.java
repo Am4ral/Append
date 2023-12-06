@@ -1,8 +1,6 @@
 package com.append.backend.resources;
 
 import com.append.backend.dto.ReserveDTO;
-import com.append.backend.dto.ReserveGetDTO;
-import com.append.backend.services.ReserveService;
 import com.append.backend.services.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
