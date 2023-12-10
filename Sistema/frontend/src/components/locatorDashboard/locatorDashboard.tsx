@@ -5,6 +5,7 @@ import { FC, useState } from 'react';
 import AddHouseForm from '../addHouseForm/addHouseForm';
 import { MapHouseOwner } from '../../services/mapHouseOwner';
 import { MapHouse } from '../../services/mapHouseUser';
+import { MapHouseReserves } from '../../services/mapReserves';
 
 interface LocatorDashboardProps{
     reserves?: boolean;
@@ -21,8 +22,14 @@ const LocatorDashboard: FC<LocatorDashboardProps> = ({reserves, admin}) => {
 
     let houses;
 
-    {reserves ? houses = MapHouseOwner() : houses = MapHouse()}
-
+    if(reserves){
+        houses = MapHouseReserves();
+    } else if(admin) {
+        houses = MapHouse()
+    } else{
+        houses = MapHouseOwner()
+    }
+    
     return ( 
         <div>
             <div>
