@@ -1,0 +1,31 @@
+.admin-add-user{
+}
+
+.admin-add-user-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-black);
+    opacity: 0.25;
+}
+
+.admin-add-user-form{
+    position: fixed;
+    width: 80vw;
+    height: max-content;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--color-white);
+    z-index: 12;
+    display: grid;
+    grid-template-columns: 25%;
+    justify-content: center;
+    padding: 2vw 0;
+    border-radius: 2vw;
+}

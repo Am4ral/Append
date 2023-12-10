@@ -25,7 +25,8 @@ const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, admin}) => {
             showConfirmForm();
             window.open("/home", "_self");
         } catch (error) {
-            console.error(error);
+            alert('Não foi possível efetuar o cancelamento.')
+            showConfirmForm();
         }
     }
 

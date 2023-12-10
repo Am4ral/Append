@@ -29,7 +29,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
         case 'ROLE_USER' || 'ROLE_OWNER':
             MenuOptions = 
                 <div className='side-bar-menu-content-options'>
-                    <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/profile'}>Perfil</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/reserves'}>Reservas</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
                 </div>
@@ -38,7 +38,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
             case 'ROLE_OWNER':
                 MenuOptions =
                 <div className='side-bar-menu-content-options'>
-                    <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/profile'}>Perfil</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/reserves'}>Reservas</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
                 </div>
@@ -47,7 +47,7 @@ const SideBar: FC<SideBarProps> = ({onTap}) => {
             case 'ROLE_ADMIN':
                 MenuOptions = 
                 <div className='side-bar-menu-content-options'>
-                    <Link className='side-bar-menu-content-options-link' to={'/home'}>Perfil</Link>
+                    <Link className='side-bar-menu-content-options-link' to={'/profile'}>Perfil</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/home'}>Dashboard</Link>
                     <Link className='side-bar-menu-content-options-link' to={'/admin'}>Administrador</Link>
                 </div>
