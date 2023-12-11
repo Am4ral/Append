@@ -10,7 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UserDTO implements Serializable {
-    
+public class UserDTO implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private long id;
 
