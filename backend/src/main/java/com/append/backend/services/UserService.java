@@ -109,7 +109,7 @@ public class UserService implements UserDetailsService{
 
         entity.getRoles().clear();
         for(RoleDTO roleDTO : dto.getRoles()){
-            Role role = roleRepository.getReferenceById(dto.getId());
+            Role role = roleRepository.getReferenceById(roleDTO.getId());
             entity.getRoles().add(role);
 
         }
