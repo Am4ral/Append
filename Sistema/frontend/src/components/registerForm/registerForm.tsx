@@ -19,8 +19,7 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
     const [email, setEmail] = useState(edit? user?.email : "");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [role, setRole] = useState("");
-    const [roleID, setRoleID] = useState("")
+    const [roleID, setRoleID] = useState('')
 
     //@ts-ignore
     const handleSubmit = async (e) => {
@@ -31,7 +30,6 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
             password: password,
             roles: [{
                 id: roleID, 
-                role: role
             }]
         })
 
@@ -40,7 +38,6 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
             setName('');
             setEmail('');
             setPassword('');
-            setRole('');
             setConfirmPassword('');
             setRoleID('');
             onClose();
@@ -51,9 +48,8 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
           setName('');
           setEmail('');
           setPassword('');
-          setRole('');
           setConfirmPassword('');
-          setRoleID("");
+          setRoleID('');
           console.log(error);
         });
     }
@@ -64,17 +60,19 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
       api(token).put(
         `/users/${user?.id}`,
         {
-            name: name,
-            email: email,
+          name: name,
+          email: email,
+          roles: [{
+              id: roleID, 
+          }]
         })
       .then((response) => {
         alert('Atualização efetuada com sucesso!')
         setName('');
         setEmail('');
         setPassword('');
-        setRole('');
         setConfirmPassword('');
-        setRoleID("");
+        setRoleID('');
         alert('Usuário alterado com sucesso.')
         onClose();
         // eslint-disable-next-line no-lone-blocks
@@ -84,40 +82,15 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
         setName('');
         setEmail('');
         setPassword('');
-        setRole('');
         setConfirmPassword('');
-        setRoleID("");
+        setRoleID('');
         console.log(error);
         alert('Não foi possível alterar o usuário.');
         onClose();
       });
     
     }
-
-
-    function switchRole (role: string){
-        switch (role) {
-            case 'ROLE_OWNER':
-                    setRoleID('1')
-                    setRole(role)
-                break;
-                
-                case 'ROLE_ADMIN':
-                    setRoleID('2')
-                    setRole(role)
-                break;
-
-                case 'ROLE_USER':
-                    setRoleID('3')
-                    setRole(role)
-                break;
-
-            default:
-                break;
-        }
-    }
   
-
     return (
     <form className="register-form" onSubmit={!edit ? handleSubmit : handleEdit}>
       <h2 className="register-form-tittle">{!edit? 'Cadastro' : 'Alterar'}</h2>
@@ -195,18 +168,18 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
             name="role"
             title="role"
             className="register-form-input-select"
-            onChange={(e) => (switchRole(e.target.value))}
-            value={role}
+            onChange={(e) => (setRoleID(e.target.value))}
+            value={roleID}
             required
             style={admin ? {backgroundColor: 'var(--color-lightGray'} : {}}
           >
-            <option defaultChecked value='' disabled>
+            <option defaultChecked value={0} disabled>
               Selecione
             </option>
-            <option value="ROLE_USER">Alugar imóveis</option>
-            <option value="ROLE_OWNER">Ofertar imóveis</option>
+            <option value="3">Alugar imóveis</option>
+            <option value="1">Ofertar imóveis</option>
             {admin ? 
-              <option value="ROLE_ADMIN">Administrar o sistema</option> 
+              <option value="2">Administrar o sistema</option> 
               : <></>
               }
           </select>
