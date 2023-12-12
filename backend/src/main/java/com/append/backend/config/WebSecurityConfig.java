@@ -42,18 +42,11 @@ public class WebSecurityConfig {
     @Autowired
     private SecurityFilter securityFilter;
 
-//    @Bean
-//    MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
-//        return new MvcRequestMatcher.Builder(introspector).servletPath("/");
-//    }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
-        MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrfConfigurer ->
-                        csrfConfigurer.ignoringRequestMatchers(mvcMatcherBuilder.pattern("/**"),
-                                 PathRequest.toH2Console()))
+                .csrf(csrfConfigurer -> csrfConfigurer.disable())
                 .cors(cors -> cors
                         .configurationSource(req -> {
                             CorsConfiguration config = new CorsConfiguration();
@@ -65,13 +58,12 @@ public class WebSecurityConfig {
                         headersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        //.requestMatchers(mvcMatcherBuilder.pattern("/")).permitAll()
                         .requestMatchers(PUBLIC).permitAll()
                         .requestMatchers(USER).hasAnyRole("USER", "OWNER", "ADMIN")
                         .requestMatchers(HttpMethod.GET ,"/houses/**").authenticated()
                         .requestMatchers(OWNER_OR_ADMIN).hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers(ADMIN).hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
