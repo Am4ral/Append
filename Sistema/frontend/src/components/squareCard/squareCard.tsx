@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import './squareCard.css'
 import ShowHouseInfo from "../showHouseInfo/showHouseInfo";
-import { HouseProps } from "../../interfaces/house";
+import { HouseProps } from "../../interfaces/props";
 
 const SquareCard: FC<HouseProps> = ({house}) => {
     const[showHouseInfo, setShowHouseInfo] = useState(false)

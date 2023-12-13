@@ -3,7 +3,7 @@ import './registerForm.css';
 import { FC, useEffect, useRef, useState } from 'react';
 import { AuthProvider, useAuth } from '../../context/AuthProvider';
 import { register } from '../../services/register';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/types';
 import { api } from '../../services/API';
 interface RegisterProps{
     onClose: () => void;

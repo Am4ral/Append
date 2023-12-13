@@ -15,7 +15,17 @@ export interface HouseProps{
             name: string;
         };
         info: string;
-            }
+    }
+}
+
+export interface HouseReserveProps{
+    reserve: {
+        id: number;
+        renter: number;
+        house: number;
+        owner: number;
+        propouseValue: number;
+    }
 }
 
 export interface OptionalHouseProps{

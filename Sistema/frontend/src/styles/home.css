@@ -10,7 +10,7 @@
     gap: 4vw;
     align-self: self-start;
     position: absolute;
-    top: 9vw;
+    top: 10vw;
     left: 0;
     right: 0;
 }
@@ -21,7 +21,7 @@
     font-weight: 400;
     font-size: 5vw;
     color: var(--color-orange);
-    margin-bottom: 3vw;
+    margin-bottom: 4vw;
 }
 
 @media screen and (orientation: portrait) {
@@ -29,7 +29,6 @@
         width: max-content;
         align-self: center;
 }
-
 
     .home-dashboard-tittle{
         font-size: 9vw;

@@ -3,7 +3,7 @@ import './addHouseForm.css'
 import addImageIcon from '../../assets/addImageIcon.svg'
 import { FC, useState } from 'react';
 import { api } from '../../services/API';
-import { OptionalHouseProps } from '../../interfaces/house';
+import { OptionalHouseProps } from '../../interfaces/props';
 import { capitalizeWords } from '../../functions/capitalizeWords';
 
 interface AddHouseFormProps{

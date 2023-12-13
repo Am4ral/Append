@@ -5,7 +5,8 @@ import { FC, useState } from 'react';
 import AddHouseForm from '../addHouseForm/addHouseForm';
 import { MapHouseOwner } from '../../services/mapHouseOwner';
 import { MapHouse } from '../../services/mapHouseUser';
-import { MapHouseReserves } from '../../services/mapReserves';
+import { MapReserves } from '../../services/mapReserves';
+import { House, Reserve } from '../../interfaces/types';
 
 interface LocatorDashboardProps{
     reserves?: boolean;
@@ -20,10 +21,15 @@ const LocatorDashboard: FC<LocatorDashboardProps> = ({reserves, admin}) => {
         setShowHouseRegister(!showHouseRegister)
     }
 
-    let houses;
+    let houses: House[] = [];
+    let reserve: Reserve[] = []; 
 
     if(reserves){
-        houses = MapHouseReserves();
+        const response = MapReserves();
+        response.forEach((item, index) => {
+            houses.push(item[0]);
+            reserve.push(item[1]);
+        })
     } else if(admin) {
         houses = MapHouse()
     } else{
@@ -55,7 +61,7 @@ const LocatorDashboard: FC<LocatorDashboardProps> = ({reserves, admin}) => {
                         <ul className="locator-dashboard-list">
                             {houses.map((house, index)=>(
                                 <li key={house.id} className='locator-dashboard-list-item'>
-                                    <ListCard house={house} reserves={reserves} admin={admin}/>
+                                    <ListCard house={house} reserves={reserves} admin={admin} reserveData={reserve[index]}/>
                                 </li>
                             ))}
                         </ul>

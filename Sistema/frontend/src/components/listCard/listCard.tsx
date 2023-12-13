@@ -4,19 +4,21 @@ import ShowHouseInfo from "../showHouseInfo/showHouseInfo";
 import editIcon from '../../assets/editIcon.svg'
 import deleteIcon from '../../assets/deleteIcon.svg'
 import { createPortal } from "react-dom";
-import { HouseProps } from "../../interfaces/house";
+import { HouseProps } from "../../interfaces/props";
 import { api } from "../../services/API";
 import FormButton from "../formButton/formButton";
 import DeleteHouseConfirm from "../deleteHouseConfirm/deleteHouseConfirm";
 import { capitalizeWords } from "../../functions/capitalizeWords";
 import AddHouseForm from "../addHouseForm/addHouseForm";
+import { Reserve } from "../../interfaces/types";
 
 interface ListCardProps{
     reserves?: boolean;
     admin?: boolean;
+    reserveData?: Reserve;
 }
 
-const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, admin}) => {
+const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, admin, reserveData}) => {
     const token = localStorage.getItem('token')
 
     async function deleteHouse(houseID: number) {
@@ -52,7 +54,7 @@ const ListCard: FC<HouseProps & ListCardProps> = ({house, reserves, admin}) => {
        <div>
         {createPortal(
             showHouseInfo ? 
-            <ShowHouseInfo house={house} onClose={showInfo} reserves={reserves} admin={admin} onDelete={showConfirmForm}/> 
+            <ShowHouseInfo house={house} onClose={showInfo} reserves={reserves} admin={admin} onDelete={showConfirmForm} reserveData={reserveData}/> 
             : <></>, 
             document.body
         )}

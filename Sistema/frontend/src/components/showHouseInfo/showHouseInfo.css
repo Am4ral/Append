@@ -32,12 +32,13 @@
 
 .show-house-info-content-left{
     display: grid;
-    grid-template-rows: max-content 40% max-content;
-    row-gap: 15%;
+    grid-template-rows: max-content 30%  max-content max-content;
+    row-gap: 8%;
 }
 
-.show-house-info-content-left button{
-    justify-self: center;
+.show-house-info-content-left-buttons{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .show-house-info-content-left h1{
@@ -54,7 +55,7 @@
 .show-house-info-content-right{
     display: grid;
     grid-template-rows: auto auto;
-    justify-self: center;
+    justify-self: start;
 }
 
 .show-house-info-content-left p, .show-house-info-content-right p{
@@ -75,6 +76,28 @@
     overflow: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none; 
+}
+
+.show-house-info-content-left-propose{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+}
+
+.show-house-info-content-left-propose input{
+    background-color: var(--color-lightGray);
+    border: none;
+    border-radius: 1vw;
+    padding: 0.5vw 0.75vw;
+    width: 10vw;
+    font-size: 1.5vw;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    text-align: right;
+    -webkit-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
+    box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
 }
 
 .show-house-info-content img{

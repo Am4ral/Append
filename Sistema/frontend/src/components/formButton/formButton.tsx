@@ -1,19 +1,19 @@
 import './formButton.css'
-import { FC, MouseEventHandler } from "react";
+import { CSSProperties, FC } from "react";
 
 interface FormButtonProps{
     text: string;
-    func?: MouseEventHandler;
     onTap?: ()=> void
     type: "button" | "submit" | "reset" | undefined;
+    style?: CSSProperties
 }
 
 
  
-const FormButton : FC<FormButtonProps> = ({text, func, type, onTap}) => {
+const FormButton : FC<FormButtonProps> = ({text, type, onTap, style}) => {
 
     return ( 
-        <button type= {type} className='form-button' onClick={onTap || func}>{text}</button>
+        <button type= {type} className='form-button' onClick={onTap} style={style || {}}>{text}</button>
      );
 }
  

@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import './adminAddUser.css'
 import RegisterForm from '../registerForm/registerForm';
 import { api } from '../../services/API';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/types';
 
 interface AdminAddUserProps {
     onClose: () => void;
