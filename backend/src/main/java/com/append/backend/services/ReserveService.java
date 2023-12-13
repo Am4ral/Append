@@ -23,7 +23,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Long.parseLong;
+import static java.lang.Long.valueOf;
 
 @Service
 public class ReserveService {
@@ -75,8 +77,9 @@ public class ReserveService {
     @Transactional
     public ReserveDTO update(ReserveDTO dto, Long id){
         try {
-            Reserve entity = reserveRepository.getOne(id);
-            copyDtoEntity(dto, entity);
+            Reserve entity = reserveRepository.getReferenceById(id);
+            //copyDtoEntity(dto, entity);
+            entity.setPropouseValue(dto.getPropouseValue());
             entity = reserveRepository.save(entity);
             return new ReserveDTO(entity);
         }
