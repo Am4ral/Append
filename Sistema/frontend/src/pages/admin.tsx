@@ -43,7 +43,7 @@ function Admin () {
         }
     }
 
-    const [userId, setUserId] = useState(Number)
+    const [userId, setUserId] = useState('')
 
     const [showConfirm, setShowConfirm] = useState(false)
 
@@ -54,6 +54,7 @@ function Admin () {
     const [showAddUser, setShowAddUser] = useState(false)
 
     function showAddUserForm  () {
+        setUserId('')
         setShowAddUser(!showAddUser)
         setEdit(false)
     }

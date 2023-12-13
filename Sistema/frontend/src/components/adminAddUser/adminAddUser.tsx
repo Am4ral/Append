@@ -7,14 +7,13 @@ import { User } from '../../interfaces/types';
 interface AdminAddUserProps {
     onClose: () => void;
     edit?: boolean;
-    userID?: number;
+    userID?: string;
 }
 
 export const AdminAddUser: FC<AdminAddUserProps> = ({onClose, edit, userID}) => {
     const token = localStorage.getItem('token')
 
     const [user, setUser] = useState<User>()
-       
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,10 +21,12 @@ export const AdminAddUser: FC<AdminAddUserProps> = ({onClose, edit, userID}) => 
             const gettedUser: User = await response.data;
             setUser(gettedUser)
         }
-        fetchData()
-    }, [token]);
+
+        if(userID !== ''){ fetchData() }
+        
+    }, [token, userID]);
     
-    if (!user) {
+    if (!user && edit) {
         return null;
     }
     

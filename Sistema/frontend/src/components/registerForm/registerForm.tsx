@@ -19,7 +19,7 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
     const [email, setEmail] = useState(edit? user?.email : "");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [roleID, setRoleID] = useState('')
+    const [roleID, setRoleID] = useState(edit? user?.roles[0].id : "")
 
     //@ts-ignore
     const handleSubmit = async (e) => {
@@ -157,13 +157,11 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
             style={admin ? {backgroundColor: 'var(--color-lightGray'} : {}}/>
         </div> : <></>}
 
-        {!edit? 
-          <div className="register-form-role-select">
-          
+       
+        <div className="register-form-role-select">
           <label htmlFor="role" className="register-form-label">
-          {!admin ? 'Eu Desejo:' : 'Função'}
+          {!admin ? 'Eu Desejo:' : 'Função:'}
           </label> 
-          
           <select
             name="role"
             title="role"
@@ -183,7 +181,7 @@ const RegisterForm: FC<RegisterProps> = ({onClose, admin, edit, user}) => {
               : <></>
               }
           </select>
-          </div> : <></>}
+        </div>
 
       <button type="submit" className="register-form-button">
         {!edit? 'Cadastrar' : 'Atualizar'}
