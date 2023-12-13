@@ -44,7 +44,7 @@ const ShowHouseInfo: FC<ShowHouseProps & HouseProps> = ({house, onClose, reserve
         )
         .then((response) => {
             console.log(`House ID: ${response.data.house}}`)
-            api(token).delete(`/reserves/${response.data.house}`);
+            api(token).delete(`/reserves/${response.data.id}`);
             console.log()
             alert('Reserva excluída com sucesso');
             window.open("/home", "_self")

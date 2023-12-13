@@ -5,6 +5,8 @@ type Reserve = {
     id: number;
     renter: number;
     house: number;
+    owner: number;
+    propose_value: number;
 };
 
 type House = {
@@ -25,35 +27,48 @@ type House = {
     id: number;
     };
 
-export function MapHouseReserves() {
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user") || "");
-
-    const [reserves, setReserves] = useState<Reserve[]>([]);
-    const [houses, setHouses] = useState<House[]>([]);
-    const [userReserves, setUserReserves] = useState<House[]>([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [reservesResponse, housesResponse] = await Promise.all([
-                    api(token).get('/reserves'),
-                    api(token).get('/houses'),
-                ]);
-
-                setReserves(reservesResponse.data);
-                setHouses(housesResponse.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        fetchData();
-    }, [token]);
-
-    useEffect(() => {
-       setUserReserves( houses.filter((house) => reserves.some((reserve) => reserve.house === house.id)))
-    }, [reserves, houses]);
-        
-    return userReserves;
-}
+    export function MapHouseReserves() {
+        const token = localStorage.getItem("token");
+        const user = JSON.parse(localStorage.getItem("user") || "");
+    
+        const [reserves, setReserves] = useState<Reserve[]>([]);
+        const [houses, setHouses] = useState<House[]>([]);
+        const [userReserves, setUserReserves] = useState<House[]>([]);
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const [reservesResponse, housesResponse] = await Promise.all([
+                        api(token).get('/reserves'),
+                        api(token).get('/houses'),
+                    ]);
+    
+                    setReserves(reservesResponse.data);
+                    setHouses(housesResponse.data);
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            };
+    
+            fetchData();
+        }, [token]);
+    
+        useEffect(() => {
+            const getUserReserves = async () => {
+                const filteredReserves = reserves.filter((reserve) => reserve.renter === user.id || reserve.owner === user.id);
+    
+                const userReserveHouses = await Promise.all(
+                    filteredReserves.map(async (reserve) => {
+                        const houseResponse = await api(token).get(`/houses/${reserve.house}`);
+                        return houseResponse.data;
+                    })
+                );
+    
+                setUserReserves(userReserveHouses);
+            };
+    
+            getUserReserves();
+        }, [reserves, user.id, token]);
+    
+        return userReserves;
+    }
