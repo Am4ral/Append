@@ -1,0 +1,122 @@
+.show-house-info-background{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-black);
+    opacity: 0.25;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.show-house-info-content{
+    width: 75vw;
+    height: 35vw;
+    background-color: var(--color-white);
+    padding: 2.75vw 2.5vw 2vw 2.5vw;
+    border-radius: 2vw;
+
+    position: fixed;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    
+    display: grid;
+    grid-template-columns: 50% 40% ;
+    column-gap: 10%;
+    grid-template-rows: 35vw;
+}
+
+.show-house-info-content-left{
+    display: grid;
+    grid-template-rows: max-content 30%  max-content max-content;
+    row-gap: 8%;
+}
+
+.show-house-info-content-left-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.show-house-info-content-left h1{
+    font-family: var(--font-rowdies);
+    font-size: 2.5vw;
+}
+
+.show-house-info-content-right-address, .show-house-info-content-left-description{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.show-house-info-content-right{
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-self: start;
+}
+
+.show-house-info-content-left p, .show-house-info-content-right p{
+    font-size: 1.5vw;
+    font-family: var(--font-montserrat);
+}
+
+.show-house-info-content-left span, .show-house-info-content-right-address span{
+    font-weight: 700;
+    font-size: 1.75vw;
+}
+
+.show-house-info-content-left-description::-webkit-scrollbar {
+    display: none;
+}
+
+.show-house-info-content-left-description{
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+.show-house-info-content-left-propose{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+}
+
+.show-house-info-content-left-propose input{
+    background-color: var(--color-lightGray);
+    border: none;
+    border-radius: 1vw;
+    padding: 0.5vw 0.75vw;
+    width: 10vw;
+    font-size: 1.5vw;
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    text-align: right;
+    -webkit-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
+    box-shadow: 2px 3px 3px 0px rgba(0,0,0,0.25);
+}
+
+.show-house-info-content img{
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    border-radius: 2vw;
+}
+
+.show-house-info-content-close-button{
+    position: fixed;
+    left: 85.5vw;
+    top: 6vw;
+    z-index: 11;
+    border: none;
+    background-color: transparent;
+    color: var(--color-black);
+    font-family: var(--font-montserrat);
+    font-weight: 600;
+    font-size: 2.5vw;
+    cursor: pointer;
+}

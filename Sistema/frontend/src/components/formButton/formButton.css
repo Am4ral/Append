@@ -1,0 +1,20 @@
+.form-button{
+    border: 0;
+    border-radius: 1vw;
+    background-color: var(--color-red);
+    padding: 1.5vw 3.5vw;
+    color: var(--color-white);
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    font-size: 1.25vw;
+    cursor: pointer;
+    width: max-content;
+}
+
+@media screen and (orientation: portrait){
+    .form-button{
+        font-size: 3.5vw;
+        border-radius: 2.5vw;
+        padding: 4vw 8vw;
+    }
+}

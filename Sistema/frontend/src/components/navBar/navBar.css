@@ -1,0 +1,46 @@
+.header {
+    display: block;
+    background-color: var(--color-orange);
+    width: 100%;
+    padding: 1% 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 2%;
+}
+
+.header-logo {
+    width: 12vw;
+    cursor: pointer;
+}
+
+.header-menu-icon {
+    width: 4vw;
+    cursor: pointer;
+}
+
+.logo-link{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (orientation: portrait) {
+    .header{
+        padding: 2.5% 0;
+    }
+
+    .header-logo{
+        width: 21vw;
+    }
+
+    .header-menu-icon{
+        width: 7vw;
+    }
+}
